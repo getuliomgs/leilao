@@ -21,7 +21,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // Add the 'add' action to the allowed actions list.
-        $this->Auth->allow(['logout', 'cadastro','index','login',]);
+        $this->Auth->allow(['logout', 'cadastro','index','login', 'add','edit', 'view']);
     }
     /**
      * Index method
@@ -47,7 +47,7 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
 
         $user = $this->Users->get($id, [
             'contain' => []
@@ -64,7 +64,7 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -95,7 +95,7 @@ class UsersController extends AppController
     public function edit($id = null)
     {
         
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+       // $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
 
         $user = $this->Users->get($id, [
             'contain' => []
@@ -124,7 +124,7 @@ class UsersController extends AppController
     public function editUser()
     {
         
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
 
         $user = $this->Users->get($this->request->session()->read()['Auth']['User']['id'], [
             'contain' => []
@@ -153,7 +153,7 @@ class UsersController extends AppController
     public function delete($id = null)
     {
 
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
 
 
         $this->request->allowMethod(['post', 'delete']);
@@ -223,7 +223,7 @@ class UsersController extends AppController
     public function indexUser()
     {
         
-        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
 
         $users = $this->paginate($this->Users);
 
