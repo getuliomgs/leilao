@@ -21,7 +21,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // Add the 'add' action to the allowed actions list.
-        $this->Auth->allow(['logout', 'cadastro','index','login', 'add', 'edit', 'view']);
+        $this->Auth->allow(['logout', 'cadastro','login', 'view']);
     }
     /**
      * Index method
