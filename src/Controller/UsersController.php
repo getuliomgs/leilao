@@ -21,7 +21,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // Add the 'add' action to the allowed actions list.
-        $this->Auth->allow(['logout', 'cadastro','index','login', 'add','edit', 'view']);
+        $this->Auth->allow(['logout', 'cadastro','index','login', 'add', 'edit', 'view']);
     }
     /**
      * Index method
@@ -231,8 +231,9 @@ class UsersController extends AppController
         $this->set('_serialize', ['users']);
     }
 
-     public function cadastro()
+    public function cadastro()
     {
           
     }
+
 }
