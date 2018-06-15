@@ -350,7 +350,7 @@ public function initialize()
             $animai->pelagem = $pelagem[$animai->pelagem];
         }
 
-        debug($this->request->session()->read()['Auth']['User']['role']);
+        //debug($this->request->session()->read()['Auth']['User']['role']);
 
         $flagLeilao = $this->animais->flagLeilao($animai->data_leilao_ini, $animai->data_leilao_fim, $time);
         $lances = $this->lances->lances($id);
