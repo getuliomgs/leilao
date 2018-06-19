@@ -180,7 +180,7 @@ public function initialize()
 
                 foreach ($_FILES as $key => $value) {
                     debug($_FILES);
-                    debug($getcwd());
+                    debug(getcwd());
                     debug($this->uploads2);
                     exit;
                     if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
@@ -195,7 +195,9 @@ public function initialize()
                             $this->Flash->error(__('Erro'.$key));
                         }
                     }else{
-                        $this->Flash->error(__('Erro ao salvar imagem'.$value['name']));
+                        if($value['name'] != "") {
+                            $this->Flash->error(__('Erro ao salvar imagem'.$value['name']));
+                        }
                     }
                 }
 
