@@ -15,7 +15,7 @@ class AnimaisController extends AppController
     public $components = array('animais', 'lances');
 
     public $uploads =  '../uploads/animais/'; 
-    public $uploads2 =  'webroot/uploads/animais/'; 
+    public $uploads2 =  'uploads/animais/'; 
     private $sexo = ['m' => 'Macho','f' => 'Fêmia'];
     private $status_2 =  [ 'A'=>'Ativo', 'I'=>'Inativo'];
     private $pelagem =
@@ -179,10 +179,6 @@ public function initialize()
             if ($this->Animais->save($animai)) {
 
                 foreach ($_FILES as $key => $value) {
-                    debug($_FILES);
-                    debug(getcwd());
-                    debug($this->uploads2);
-                    exit;
                     if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
 
                         $animai = $this->Animais->get($this->Animais->save($animai)->id);
