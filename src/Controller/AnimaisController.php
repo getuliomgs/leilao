@@ -180,7 +180,9 @@ public function initialize()
 
                 foreach ($_FILES as $key => $value) {
                     debug($_FILES);
-                    debug($_POST);
+                    debug($getcwd());
+                    debug($this->uploads2);
+                    exit;
                     if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
 
                         $animai = $this->Animais->get($this->Animais->save($animai)->id);
