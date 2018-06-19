@@ -113,7 +113,7 @@
           <?php endif; ?>
           <?php if(!empty($animai->foto_4)): ?>
             <div class="carousel-item">
-              <img class="third-slide" style="width: 100%; max-height:154px" src="../../uploads/animais/<?= h($animai->foto_4) ?>" alt="Third slide">
+              <img class="third-slide" style="width: 100%; height: auto;" src="../../uploads/animais/<?= h($animai->foto_4) ?>" alt="Third slide">
             </div>
           <?php endif; ?>
         </div>
