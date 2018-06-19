@@ -192,7 +192,7 @@ public function initialize()
                         }else{
                             $this->Flash->error(__('Erro'.$key));
                         }
-                    }esle{
+                    }else{
                         $this->Flash->error(__('Erro ao salvar imagem'.$value['name']));
                     }
                 }
