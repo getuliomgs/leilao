@@ -177,10 +177,10 @@ public function initialize()
             $animai = $this->Animais->patchEntity($animai, $this->request->data);         
             
             if ($this->Animais->save($animai)) {
-                debug($_FILES);
-                debug($_POST);
-                exit;
+
                 foreach ($_FILES as $key => $value) {
+                    debug($_FILES);
+                    debug($_POST);
                     if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
 
                         $animai = $this->Animais->get($this->Animais->save($animai)->id);
@@ -192,6 +192,8 @@ public function initialize()
                         }else{
                             $this->Flash->error(__('Erro'.$key));
                         }
+                    }esle{
+                        $this->Flash->error(__('Erro ao salvar imagem'.$value['name']));
                     }
                 }
 
