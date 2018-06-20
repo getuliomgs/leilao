@@ -5,7 +5,7 @@
     <h2><?= __('Veja como é fácil participar dos leilões') ?></h2>
     <br />
     <p>
-        1° - Realize o seu cadastro no site preenchendo as informações solicitadas no formulário - <?= $this->Html->link('CLIQUE AQUI PARA SE CADASTRAR', 'users/cadastro/', ['type'=>'button', 'class'=>'btn btn-success']) ?>
+        1° - Realize o seu cadastro no site preenchendo as informações solicitadas no formulário - <?= $this->Html->link('CLIQUE AQUI PARA SE CADASTRAR', '/users/cadastro/', ['type'=>'button', 'class'=>'btn btn-success']) ?>
     </p>
     <br />
     <p>
@@ -32,6 +32,6 @@
         AGORA É SÓ FICAR DE OLHO NAS OPORTUNIDADES PARA REALIZAR EXCELENTES NEGÓCIOS.
     </p>
     <br />
-    <p><?= $this->Html->link('QUERO ME CADASTRAR', 'users/cadastro/', ['type'=>'button', 'class'=>'btn btn-success']) ?> </p>
+    <p><?= $this->Html->link('QUERO ME CADASTRAR', '/users/cadastro/', ['type'=>'button', 'class'=>'btn btn-success']) ?> </p>
     <br />
 </div>
