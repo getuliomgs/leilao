@@ -23,6 +23,10 @@
             <td><?= h($user->role) ?></td>
         </tr>
         <tr>
+            <th><?= __('Status') ?></th>
+            <td><?= h($user->status) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Id') ?></th>
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>

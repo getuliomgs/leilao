@@ -2,20 +2,29 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\Auth\DefaultPasswordHasher;
 
 /**
- * User Entity.
+ * Dado Entity.
  *
  * @property int $id
- * @property string $username
- * @property string $password
- * @property string $status
- * @property string $role
+ * @property int $users_id
+ * @property \App\Model\Entity\User $user
+ * @property string $nome_razao
+ * @property int $cpf_cnpj
+ * @property \Cake\I18n\Time $data_nasc
+ * @property int $tel
+ * @property int $cel
+ * @property int $cep
+ * @property string $logradouro
+ * @property int $numero
+ * @property string $complemento
+ * @property string $bairro
+ * @property string $estado
+ * @property string $cidade
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  */
-class User extends Entity
+class Dado extends Entity
 {
 
     /**
@@ -31,19 +40,4 @@ class User extends Entity
         '*' => true,
         'id' => false,
     ];
-
-    /**
-     * Fields that are excluded from JSON an array versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
-    ];
-
-
-     protected function _setPassword($password)
-    {
-        return (new DefaultPasswordHasher)->hash($password);
-    }
 }

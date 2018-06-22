@@ -14,6 +14,7 @@
         <?php
             echo $this->Form->input('username', ['label' => 'Usuário']);
             echo $this->Form->input('password', ['label' => 'Senha']);
+            echo $this->Form->input('status', ['label' => 'status', 'options'=>['A'=>'Ativo', 'I'=>'Inativo', 'P'=>"Pendente"]]);
             echo $this->Form->input('role', ['options' => $optRole, 'label' => 'Credencial']);
         ?>
     </fieldset>

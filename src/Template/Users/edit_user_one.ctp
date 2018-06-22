@@ -28,10 +28,9 @@
         <legend><?= __('Editar Usuários') ?></legend>
         <?php
             echo $this->Form->input('username', ['label' => 'Usuário', 'disabled']);
-            echo $this->Form->input('password', ['label' => 'Senha', 'required'=>false, 'value'=>'']);
-            echo $this->Form->input('confirmar', ['type'=>'password', 'label' => 'Confirmar Senha', 'required' => false ]);
+            echo $this->Form->input('password', ['label' => 'Senha']);
+            echo $this->Form->input('confirmar', ['type'=>'password', 'label' => 'Confirmar Senha', 'required' => true ]);
             //echo $this->Form->input('role', ['options' => $optRole, 'label' => 'Credencial']);
-            echo $this->Form->input('status', ['label' => 'status', 'options'=>$status, 'type'=>'select']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Salvar')) ?>

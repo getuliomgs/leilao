@@ -50,6 +50,9 @@ class UsersTable extends Table
             ->notEmpty('password');
 
         $validator
+            ->notEmpty('status');
+
+        $validator
             ->notEmpty('role');
 
         return $validator;
