@@ -160,6 +160,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <footer>
       
     </footer>
+    <hr>
     <div class="rodape" style="color: #FFF; margin-top: 10px; ">
       <div style="padding-top: 20px; padding-bottom: 40px" class="row">
         <div class="col-md-4">

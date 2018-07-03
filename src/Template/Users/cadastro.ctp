@@ -14,7 +14,7 @@
     ',['defer' => true]);
 ?>
 <div class="col">
-    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <nav class="large-3 medium-4 columns">
         <h2><?= __('CADASTRE-SE') ?></h2>
         <p>
             Preencha corretamente TODOS os campos do formulário para que possamos liberar seu cadastro de usuário com maior rapidez.
@@ -24,7 +24,7 @@
             ATENÇÃO: Seu cadastro será liberado em até 48 horas.
         </p>
     </nav>
-    <div class="animais form large-9 medium-8 columns content">
+    <div class="animais form large-9 medium-8 columns ">
 
         <?= $this->Form->create() ?>
         <?php

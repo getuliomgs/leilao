@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="col">
-    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <nav class="large-3 medium-4 columns" >
     	<h2><?= __('CONTATO') ?></h2>
 	    <p>
 	    	Gostamos sempre de ouvir a opinião de nossos clientes. Fique a vontade para entrar em contato, tirar suas dúvidas ou dar sugestões.
@@ -29,7 +29,7 @@
 			CEP: 41701-015
 		</p>
 	</nav>
-	<div class="animais form large-9 medium-8 columns content">
+	<div class="animais form large-9 medium-8 columns">
 		<?= $this->Form->create() ?>
 		<?php
             echo $this->Form->input('nome');
