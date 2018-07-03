@@ -23,7 +23,7 @@ class ContatoController extends AppController
 	    		 ->emailFormat('html')
 	    		->subject('Contato do Site Haras Luanda')
 	    		->send(
-	    			'<h2> Contato do Site Haras Luanda</h2>'.'Nome: '.$this->request->data['nome'].'<br />'.'Email: '.$this->request->data['email'].'<br />'.'Telefone: '.$this->request->data['nome'].'<br />'.'Mensagem: '.$this->request->data['mensagem'].'<br />'
+	    			'<h2> Contato do Site Haras Luanda</h2><br />'.'Nome: '.$this->request->data['nome'].'<br />'.'Email: '.$this->request->data['email'].'<br />'.'Telefone: '.$this->request->data['nome'].'<br />'.'Mensagem: '.$this->request->data['mensagem'].'<br />'
 	    		);
 	    		 $this->Flash->success(__('Contato enviado com sucesso!'));
 	    }
