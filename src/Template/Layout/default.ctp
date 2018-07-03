@@ -55,7 +55,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    <?= $this->Html->script('jquery-3.3.1.slim.min'); ?>
+    
+    <?= $this->Html->script('jquery-3.3.1'); ?>
     <?php
 
     
@@ -80,18 +81,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?php
     }
 ?>  
-
-<?php
-
-    if(isset($this->request->session()->read()['Auth']['User']['role']) and ($this->request->session()->read()['Auth']['User']['role'] == 'leiloeiro' OR $this->request->session()->read()['Auth']['User']['role'] == 'superUser')) {
-?>
-                        <li class="first"><?= $this->Html->link(__('Usuários'), ['controller' => 'users', 'action' => 'indexUser']) ?></li>
-                        <li class="first"><?= $this->Html->link(__('Animais'), ['controller' => 'animais', 'action' => 'indexUser']) ?></li>
-                        <li><?= $this->Html->link(__('Lances'), ['controller' => 'lances', 'action' => 'indexUser']) ?></li>
-                        <li class="last"><?= $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']) ?></li>
-<?php
-    }
-?>  
                    </ul>
                 </div>     
         </section>
@@ -101,11 +90,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Flash->render() ?>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <?= $this->html->image('logomarca-haras-luanda.jpg') ?> 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <?= $this->html->image('logomarca-haras-luanda.jpg') ?> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -127,16 +116,42 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </ul>
 
     <?php
-
         if(empty($this->request->session()->read()['Auth']['User']['role'])){
-           echo  $this->html->link('Logar', ['controller'=>'users'], ['class'=>'nav-link']);
+          echo  $this->html->link('Logar', ['controller'=>'users', 'action'=>'login'], ['class'=>'nav-link']);
+          echo  $this->html->link('Cadastre-se', ['controller'=>'users', 'action'=>'cadastro'], ['class'=>'nav-link']);
         }else{
-           echo $this->html->link($this->request->session()->read()['Auth']['User']['username'], ['controller'=>'users', 'action'=>'index-user'], ['class'=>'nav-link']);
-        }
     ?>
-    
-    
+    <!-- Small button groups (default and split) -->
+    <div class="btn-group form-inline my-2 my-lg-0 nav-link">
+      
+        <?= $this->html->link($this->request->session()->read()['Auth']['User']['username'], '', [ 'class'=>"form-inline my-2 my-lg-0 btn btn-secondary btn-sm dropdown-toggle", 'type'=>"button", 'data-toggle'=>"dropdown", 'aria-haspopup'=>"true", 'aria-expanded'=>"false"]); ?>
+
+      <div class="dropdown-menu">
+        <?= $this->html->link('Senha', ['controller'=>'users', 'action'=>'editUserOne'], ['class'=>'dropdown-item']) ?>
+        <?php
+          if($this->request->session()->read()['Auth']['User']['role'] == 'superUser' OR $this->request->session()->read()['Auth']['User']['role'] == 'leiloeiro'){
+            echo $this->html->link('Animais', ['controller'=>'animais', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Lances', ['controller'=>'lances', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Usuários', ['controller'=>'users', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Dados', ['controller'=>'dados', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Sair', ['controller'=>'users', 'action'=>'logout'],['class'=>'dropdown-item']);
+          }
+          if($this->request->session()->read()['Auth']['User']['role'] == 'arrematante'){
+            echo $this->html->link('Lances', ['controller'=>'lances', 'action'=>'indexUserOne'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Sair', ['controller'=>'users', 'action'=>'logout'],['class'=>'dropdown-item']);
+          }
+
+        ?>
+        
+        
+        
+        
+      </div>
+    </div>
+    <?php } ?>
   </div>
+
+
 </nav>
 
     <section >
@@ -146,7 +161,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
      
     </footer>
 
-    <?= $this->Html->script('bootstrap.min'); ?>
+    <?= $this->Html->script('bootstrap-4.1.0/dist/js/bootstrap.min'); ?>
         
 </body>
 </html>

@@ -18,14 +18,14 @@ use Cake\ORM\TableRegistry;
 class UsersController extends AppController
 {
 
-    private $optRole =  ['superUser' => 'Super Usuário', 'leiloeiro' => 'Leiloeiro'];
+    private $optRole =  ['superUser' => 'Super Usuário', 'leiloeiro' => 'Leiloeiro', 'arrematante'=>'Arrematante'];
     private $status = ['A'=>'Ativo', 'I'=>'Inativo', 'P'=>"Pendente"];
 
     public function initialize()
     {
         parent::initialize();
         // Add the 'add' action to the allowed actions list.
-        $this->Auth->allow(['logout', 'cadastro','login', 'view', 'confirmar']);
+        $this->Auth->allow(['logout', 'cadastro','login', 'confirmar']);
     }
 
     /**
@@ -35,6 +35,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $users = $this->paginate($this->Users);
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
@@ -50,7 +51,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
-
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -66,8 +67,7 @@ class UsersController extends AppController
      */
     public function add()
     {
-        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
-
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -96,7 +96,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     { 
-       // $this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -178,7 +178,7 @@ class UsersController extends AppController
      */
     public function editUserOne()
     {
-        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro', 'superUser', 'arrematante']);
         $user = $this->Users->get($this->request->session()->read()['Auth']['User']['id'], [
             'contain' => []
         ]);
@@ -189,7 +189,7 @@ class UsersController extends AppController
             }
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Salvo!'));
-                return $this->redirect(['action' => 'editUser']);
+                return $this->redirect(['action' => 'editUserOne']);
             } else {
                 $this->Flash->error(__('Tente novamente!'));
             }
@@ -209,10 +209,7 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
-
-        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
-
-
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
@@ -226,27 +223,12 @@ class UsersController extends AppController
     public function login()
     {
         if ($this->request->is('post')) {
-           
-           $user = $this->Auth->identify();
-            //debug($user['role']);
-           //debug($user)or die();
+            $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                if($user['role'] != 'condomino'){
-                    return $this->redirect($this->Auth->redirectUrl());
-                }else{
-                    if($user['created']->format("Y-m-d") == date("Y-m-d") ){
-                         $this->Flash->success(__('Um email foi enviado para '.$user['username'].' com instruções de acesso.'));  
-                    }
-                    return $this->redirect(['controller' => 'relatorios', 'action'=>'']);
-                }
-            }
-            
-            if(isset($this->request->data['cadastro'])){
-                //cadastra usuário e envia email para confirmar acesso
-                $this->add();
-            }else{
-                $this->Flash->error(__('Invalido usuário ou senha, tente novamente'));
+                return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(__('Usuário ou password incorretos.'));
             }
         }
     }
@@ -278,7 +260,7 @@ class UsersController extends AppController
 
     public function indexUser()
     {  
-        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['leiloeiro']);
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
         $users = $this->paginate($this->Users);
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
@@ -317,7 +299,9 @@ class UsersController extends AppController
                         '<h2>Olá, '.$dados->nome_razao.'</h2>'.
                         'O seu pré-cadastro foi realizado com sucesso.<br /><br />'.
 
-                        'Seu  usuário encontra-se pendende de aprovação com prazo medio de 24hs para liberação.<br /><br >'.
+                        'Seu  usuário encontra-se pendente de aprovação com prazo médio de 24hs para liberação.<br /><br >'.
+
+                        'Você recebera um e-mail confirmando liberação!'.
                         
                         'Atenciosamente,<br />'. 
                         'Equipe Haras Luanda <br />'.
@@ -341,6 +325,7 @@ class UsersController extends AppController
                         'Sistema leilao Haras Luanda <br />'.
                         'getulio.sena.junior@gmail.com'
                     );
+                    unset($this->request->data);
                     $this->Flash->success(__('Um e-mail de pré-cadastro foi enviado para '.$user->username.', favor acessar!'));
                     //reset form
                 }else{
@@ -352,29 +337,81 @@ class UsersController extends AppController
         }
     }
 
+    /**
+     * confirmar method
+     * cadastra primeira senha do usuário
+     *
+     * @param int|null $id User id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
     public function confirmar($id = null)
     {
+
         $this->Auth->logout();
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
-
         if ($this->request->is(['patch', 'post', 'put'])) {
             if (($user->created == $this->request->query['data']) and ($user->password == $this->request->query['key'])){
                 $user = $this->Users->patchEntity($user, $this->request->data);
-            if($this->Users->save($user)) {
-                 $this->Flash->success(__('Senha Alterada com sucesso. Faça login!'));
 
-                return $this->redirect(['action' => 'index_user']);
-            } else {
-                $this->Flash->error(__('Erro ao salvar!'));
+                if($this->Users->save($user)) {
+                    $this->Flash->success(__('Senha Alterada com sucesso. Faça login!'));
+                    return $this->redirect(['controller'=>'leiloes', 'action' => 'index-user']);
+                } else {
+                    $this->Flash->error(__('Erro ao salvar!'));
+                }
+            }else{
+                $this->Flash->error(__('Erro contate administrador Rodrigo Vilas Boas (71) 99958-6750'));
             }
-        }else{
-            $this->Flash->error(__('Erro contate administrador Rodrigo Vilas Boas (71) 99958-6750'));
+        }
+
+        $optRole = $this->optRole;
+        $this->set(compact('user', 'optRole'));
+        $this->set('_serialize', ['user', 'optRole']);
+    }
+
+     /**
+     * ViewUser method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function viewUser($id = null)
+    {
+        //$this->testeAuth($this->request->session()->read()['Auth']['User']['role'],['leiloeiro']);
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+
+        $this->set('user', $user);
+        $this->set('_serialize', ['user']);
+    }
+
+    /**
+     * AddUser method
+     *
+     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+     */
+    public function addUser()
+    {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('Salvo.'));
+                return $this->redirect(['action' => 'indexUser']);
+            } else {
+                $this->Flash->error(__('Falha, tente novamente.'));
+            }
         }
         $optRole = $this->optRole;
         $this->set(compact('user', 'optRole'));
         $this->set('_serialize', ['user', 'optRole']);
-        }
     }
+
 }

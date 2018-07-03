@@ -25,7 +25,7 @@ class AnimaisTable extends Table
         parent::initialize($config);
 
         $this->table('animais');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

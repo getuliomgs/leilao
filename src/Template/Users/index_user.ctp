@@ -1,11 +1,5 @@
 <?php
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Menu Usuário') ?></li>
-        <li><?= $this->Html->link(__('Novo'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Usuários') ?></h3>
     <table cellpadding="0" cellspacing="0">
@@ -26,9 +20,9 @@
                 <td><?= h($user->status) ?></td>
                 <td><?= h($user->role) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'viewUser', $user->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit_user', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $user->id], ['confirm' => __('Excluir? # {0}?', $user->id)]) ?>
+                    <?= $this->Form->postLink(__('Excluir'), ['action' => 'deleteUser', $user->id], ['confirm' => __('Excluir? # {0}?', $user->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

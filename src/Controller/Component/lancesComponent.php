@@ -33,8 +33,9 @@ class lancesComponent extends Component {
         $return = array();
         
         $query = TableRegistry::get('lances')->find();
+        $query->contain(['Users',  'Animais']);
         $query->where(['animais_id' => $id_animal]);
-        $query->orderdesc('valor');
+        $query->orderdesc('lances__valor');
         $query->limit(1);
 
         foreach ($query as $key => $value) {

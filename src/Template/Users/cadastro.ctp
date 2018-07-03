@@ -6,12 +6,17 @@
             
             $("#data-nasc").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
 
+
+            $("#cpf-cnpj").mask("99999999999999");
+
+
+
         });
     ',['defer' => true]);
 ?>
 <div class="col">
     <nav class="large-3 medium-4 columns" id="actions-sidebar">
-        <h2><?= __('CONTATO') ?></h2>
+        <h2><?= __('CADASTRE-SE') ?></h2>
         <p>
             Preencha corretamente TODOS os campos do formulário para que possamos liberar seu cadastro de usuário com maior rapidez.
         </p>
@@ -24,9 +29,9 @@
 
         <?= $this->Form->create() ?>
         <?php
-            echo $this->Form->input('nome_razao', ['label'=>'Razão Social / Nome Completo', 'required'=>true, 'class'=>'form-control']);
+            echo $this->Form->input('nome_razao', ['label'=>'Razão Social ou Nome Completo', 'required'=>true, 'class'=>'form-control']);
             echo $this->Form->input('email',['required'=>true,'class'=>'form-control']);
-            echo $this->Form->input('cpf_cnpj',['required'=>true, 'label'=>'CPF/CNPJ', 'class'=>'form-control']);
+            echo $this->Form->input('cpf_cnpj',['required'=>true, 'label'=>'CPF ou CNPJ', 'class'=>'form-control', 'placeholder'=>'Somente numeros']);
             echo $this->Form->input('data_nasc',['required'=>true, 'label'=>'Data nascimento', 'class'=>'form-control']);
             echo $this->Form->input('tel', ['label'=>'Telefone', 'class'=>'form-control']);    
             echo $this->Form->input('cel', ['required'=>true, 'label'=>'Celular', 'class'=>'form-control']);    

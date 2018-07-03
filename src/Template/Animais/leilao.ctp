@@ -5,6 +5,12 @@
       $("#date-referencia").mask("99/9999",{placeholder:"dd/yyyy"});
       $("#date-pagamento-previsto").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
 
+      $("#buttonAtualizar").click(
+        function (){
+          location.reload();
+        }
+      );
+
 
       $("#modalLanceButtonAdd10").click(
         function (){
@@ -43,7 +49,51 @@
 
       $("button[name=\'efetuarLance\']").click(
         function() {
-          alert("teste lance");
+          var lanceAtual = parseFloat($("#modalLanceButtonLanceAtual").val());
+          var lanceAtualBD = parseFloat($("input[name=\'lanceAtual\']").val());
+          var animai_id = parseInt($("button[name=\'animai_id\']").val());
+          if(confirm("Pressione OK para confirmar seu lance!")){
+            if(lanceAtual > lanceAtualBD){
+              $.ajax({
+                url: "../lance/"+animai_id+"?lanceAtual="+lanceAtual,
+                type: "GET",
+                
+                beforeSend: function () {
+                    //Aqui adicionas o loader
+                    $("#modalLance").html("<div class=\"col-12\">Seu lance está sendo computado pelo nosso sistema aguarde!</div><br /><hr /> <div class=\"col-12\"><div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"30\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 30%\"></div></div></div> " );
+                      setTimeout(function(){ 
+                        $("#modalLance").html("<div class=\"col-12\">Seu lance está sendo computado pelo nosso sistema aguarde!</div><br /><hr /> <div class=\"col-12\"><div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%\"></div></div></div> " );
+                      }, 3000);  
+                      setTimeout(function(){ 
+                        $("#modalLance").html("<div class=\"col-12\">Seu lance está sendo computado pelo nosso sistema aguarde!</div><br /><hr /> <div class=\"col-12\"><div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"90\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 90%\"></div></div></div> " );
+                      }, 6000);  
+                      setTimeout(function(){ 
+                        $("#modalLance").html("<div class=\"col-12\">Seu lance está sendo computado pelo nosso sistema aguarde!</div><br /><hr /> <div class=\"col-12\"><div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 100%\"></div></div></div> " );
+                      }, 10000);  
+
+
+                },         
+                success: function(data) {
+                   console.log("sucesso");
+                },
+                error: function() {
+                    console.log("erro");
+                } ,  
+                complete: function(){
+                  
+                }
+              })  
+              .done(function( html ) {
+                setTimeout(function(){ 
+                        $( "#modalLance" ).html(html);
+                      }, 11000);
+              });       
+            }else{
+              alert("Seu lance deve ser maior que atual");
+            }
+          }else{
+            alert("Fique a vontade para apresentar seus lances");
+          }
         }
       );
       
@@ -57,8 +107,7 @@
           $("span[name=\'lanceAtual\']").html("R$ "+lanceAtual);
         }else{
           alert("Seu lance deve ser maior que R$ "+lanceAtualBD);
-        }
-        
+        }     
       }
 
       $("#condominios-id").change(
@@ -165,7 +214,13 @@
           </div>
         <?php endif; ?>
         <?php if($flagLeilao == "ABE"): ?>
-          <?php echo $this->Html->link('LANCE', '#lance', array('id'=>'linkLance', 'data-toggle' => 'modal', 'class' => 'btn btn-success btn-lg btn-block' )); ?>
+          <?php 
+            if(isset($this->request->session()->read()['Auth']['User']['role'])){
+              echo $this->Html->link('LANCE', '#lance', array('id'=>'linkLance', 'data-toggle' => 'modal', 'class' => 'btn btn-success btn-lg btn-block' ));
+            }else{
+              echo $this->Html->link('LANCE', '#login', array('id'=>'linkLance', 'data-toggle' => 'modal', 'class' => 'btn btn-success btn-lg btn-block' ));
+            }
+          ?>
         <?php endif; ?>
         <?php if($flagLeilao == "EMB"):  ?>
           <?php echo $this->Html->link('EM BREVE', '#emb', array('data-toggle' => 'modal', 'class' => 'btn btn-warning btn-lg btn-block' )); ?>
@@ -284,14 +339,14 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Dar seu lance</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Dar seu lance no lote: <button class="btn btn-warning btn-sm" name="animai_id" value="<?= $animai->id ?>" ><?= $animai->id ?></button></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>      
       <div class="modal-body">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row" id="modalLance">
             <div class="col-12 col-sm-12  col-md-12  col-lg-7  col-xl-7" style="padding-bottom: 5px">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-3" style="padding-bottom: 5px">
@@ -316,15 +371,53 @@
                   62x de R$ <span  name="lanceAtual" ><?= $lanceAtual ?></span>,00
                 </div>
                 <div class="col-12">
-                  <hr>
-                </div>
-                <div class="col-12">
                   <button name="efetuarLance" type="button" class="btn btn-success btn-lg btn-block">Efeturar Lance</button>
                 </div>             
               </div>
             </div>
             <div id="divListarLancesModal" class="col-12 col-sm-12  col-md-12  col-lg-5  col-xl-5">
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal login -->
+<div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Área Restrita </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>      
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-2 col- users form">
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8 col- users form">
+              <?= $this->Flash->render('auth') ?>
+              <?= $this->Form->create(null,  ['url' => ['controller' => 'users', 'action' => 'login'] ]) ?>
+                  <fieldset>
+                      <legend><?= __('Área Restrita') ?></legend>
+                      <?= $this->Form->input('username' , ['label'=>'Usuário', 'required'=>'true' ]) ?>
+                      <?= $this->Form->input('password', ['label'=>'Senha', 'required'=>'true']) ?>
+                      <?= $this->Form->hidden('role', ['default'=> 'condomino' ]) ?>
+                      <?= $this->Form->hidden('avulso', ['default'=> 'true' ]) ?>
+                  </fieldset>
+              <?= $this->Form->button(__('Logar')); ?>
+              <?php
+                echo  $this->Html->link('Cadastro', ['action' => 'cadastro']);
+              ?>
+              <?= $this->Form->end() ?>
+              </div>
+              <div class="col-lg-4 col-md-2 col-sm-2 col- users form">
+                
+              </div>
           </div>
         </div>
       </div>

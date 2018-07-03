@@ -110,4 +110,37 @@ class DadosController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * IndexUser method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function IndexUser()
+    {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
+        $dados = $this->paginate($this->Dados);
+
+        $this->set(compact('dados'));
+        $this->set('_serialize', ['dados']);
+    }
+
+    /**
+     * ViewUser method
+     *
+     * @param string|null $id Dado id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function viewUser($id = null)
+    {
+        $dado = $this->Dados->get($id, [
+            'contain' => ['Users']
+        ]);
+
+        $this->set('dado', $dado);
+        $this->set('_serialize', ['dado']);
+    }
 }
