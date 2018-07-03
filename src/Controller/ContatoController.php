@@ -17,8 +17,8 @@ class ContatoController extends AppController
     {
 	   	if($this->request->is('post')) {
 	    	$email = new Email('default');
-			$email->from(['getulio.sena.junior@gmail.com' => 'Haras Luanda - Site Formulário de Contato'])
-	    		->to('harasluanda@gmail.com')
+			$email->from(['haras@harasluanda.com.br' => 'Haras Luanda - Site Formulário de Contato'])
+	    		->to('haras@harasluanda.com.br')
 	    		->replyTo($this->request->data['email'])
 	    		 ->emailFormat('html')
 	    		->subject('Contato do Site Haras Luanda')

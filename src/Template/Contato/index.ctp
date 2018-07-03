@@ -18,7 +18,7 @@
 		</p>
 		<br />
 		<p>
-			E-mail: harasluanda@gmail.com
+			E-mail: haras@harasluanda.com.br
 		</p>
 		<br />
 		<p>
