@@ -270,10 +270,9 @@ class UsersController extends AppController
     {   
         if ($this->request->is('post')) {
             $this->request->data['data_nasc'] = $this->format_data($this->request->data['data_nasc']);
-          
+                      
             $user = $this->Users->newEntity();
             
-
             $dadosTable = TableRegistry::get('Dados');
             $dados = $dadosTable->newEntity();
             $dados = $dadosTable->patchEntity($dados, $this->request->data);
@@ -326,7 +325,7 @@ class UsersController extends AppController
                         'Nome / Razão: '.$this->request->data['nome_razao'].'<br />'.
                         'E-mail: '.$this->request->data['email'].'<br />'.
                         'CPF / CNPJ: '.$this->request->data['cpf_cnpj'].'<br />'.
-                        'Data Nasc.: '.$this->format_data($this->request->data['data_nasc']).'<br />'.
+                        'Data Nasc.: '.$this->request->data['data_nasc']['day'].'/'.$this->request->data['data_nasc']['month'].'/'.$this->request->data['data_nasc']['year'].'<br />'.
                         'Tel.: '.$this->request->data['tel'].'<br />'.
                         'Cel.: '.$this->request->data['cel'].'<br />'.
                         'CEP: '.$this->request->data['cep'].'<br />'.
