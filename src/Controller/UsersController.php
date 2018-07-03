@@ -326,13 +326,13 @@ class UsersController extends AppController
                         'Nome / Razão: '.$this->request->data['nome_razao'].'<br />'.
                         'E-mail: '.$this->request->data['email'].'<br />'.
                         'CPF / CNPJ: '.$this->request->data['cpf_cnpj'].'<br />'.
-                        'Data Nasc.: '.$this->request->data['data_nasc'].'<br />'.
+                        'Data Nasc.: '.$this->format_data($this->request->data['data_nasc']).'<br />'.
                         'Tel.: '.$this->request->data['tel'].'<br />'.
-                        'Cel.: '.$this->request->data['Cel'].'<br />'.
-                        'CEP.: '.$this->request->data['cep'].'<br />'.
-                        'Logradouro.: '.$this->request->data['logradouro'].'<br />'.
-                        'Número.: '.$this->request->data['numero'].'<br />'.
-                        'Complemento.: '.$this->request->data['complemento'].'<br />'.
+                        'Cel.: '.$this->request->data['cel'].'<br />'.
+                        'CEP: '.$this->request->data['cep'].'<br />'.
+                        'Logradouro: '.$this->request->data['logradouro'].'<br />'.
+                        'Número: '.$this->request->data['numero'].'<br />'.
+                        'Complemento: '.$this->request->data['complemento'].'<br />'.
                         'Bairro: '.$this->request->data['bairro'].'<br />'.
                         'Estado: '.$this->request->data['estado'].'<br />'.
                         'Cidade: '.$this->request->data['cidade'].'<br /><br />'.

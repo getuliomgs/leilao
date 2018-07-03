@@ -18,6 +18,7 @@ class DadosController extends AppController
      */
     public function index()
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -36,6 +37,7 @@ class DadosController extends AppController
      */
     public function view($id = null)
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $dado = $this->Dados->get($id, [
             'contain' => ['Users']
         ]);
@@ -51,6 +53,7 @@ class DadosController extends AppController
      */
     public function add()
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $dado = $this->Dados->newEntity();
         if ($this->request->is('post')) {
             $dado = $this->Dados->patchEntity($dado, $this->request->data);
@@ -75,6 +78,7 @@ class DadosController extends AppController
      */
     public function edit($id = null)
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $dado = $this->Dados->get($id, [
             'contain' => []
         ]);
@@ -101,6 +105,7 @@ class DadosController extends AppController
      */
     public function delete($id = null)
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser']);
         $this->request->allowMethod(['post', 'delete']);
         $dado = $this->Dados->get($id);
         if ($this->Dados->delete($dado)) {
@@ -118,6 +123,7 @@ class DadosController extends AppController
      */
     public function IndexUser()
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -136,11 +142,32 @@ class DadosController extends AppController
      */
     public function viewUser($id = null)
     {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro', 'arrematante']);
         $dado = $this->Dados->get($id, [
             'contain' => ['Users']
         ]);
 
         $this->set('dado', $dado);
         $this->set('_serialize', ['dado']);
+    }
+
+     /**
+     * DeleteUser method
+     *
+     * @param string|null $id Dado id.
+     * @return \Cake\Network\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function deleteUser($id = null)
+    {
+        $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
+        $this->request->allowMethod(['post', 'delete']);
+        $dado = $this->Dados->get($id);
+        if ($this->Dados->delete($dado)) {
+            $this->Flash->success(__('Excluido com sucesso.'));
+        } else {
+            $this->Flash->error(__('Erro na exclusão.'));
+        }
+        return $this->redirect(['action' => 'indexUser']);
     }
 }
