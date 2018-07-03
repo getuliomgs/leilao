@@ -158,8 +158,49 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('content') ?>
     </section>
     <footer>
-     
+      
     </footer>
+    <div class="rodape" style="color: #FFF; margin-top: 10px; ">
+      <div style="padding-top: 20px; padding-bottom: 40px" class="row">
+        <div class="col-md-4">
+          <h3 style="color: #FFF">Contatos</h3>
+          <p>
+          Rodrigo Vilas Boas (Administrador): (71) 99958-6750<br /><br />
+
+          E-mail: haras@harasluanda.com.br<br /><br />
+
+          Av. Alphaville, nº 522, Quadra F4 Lote 01,<br /> Ed. Alpha Business 3º Andar, Sala 302,<br /> Alphaville I Salvador - Bahia - Brasil<br /> CEP: 41701-015
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h3 style="color: #FFF"> Links</h3>
+          <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <?= $this->html->link('Sobre', ['controller'=>'sobre/'], [ 'style'=>"color:#FFFFFF", 'class'=>'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->html->link('Leilões', ['controller'=>'leiloes', 'action'=>'indexUser'], [ 'style'=>"color:#FFFFFF",'class'=>'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->html->link('Como funciona', ['controller'=>'como-funciona'], [ 'style'=>"color:#FFFFFF",'class'=>'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->html->link('Politicas', ['controller'=>'politicas'], [ 'style'=>"color:#FFFFFF",'class'=>'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->html->link('Contato', ['controller'=>'contato'], [ 'style'=>"color:#FFFFFF",'class'=>'nav-link']) ?>
+      </li>
+    </ul>
+        </div>
+        <div class="col-md-4">
+          <h3 style="color: #FFF">Redes sociais</h3>
+          <!--  -->
+
+          <a href="https://www.facebook.com/haras.luanda.94?ref=br_rs" target="_blank" ><img src="img/facebook.jpg" style="margin: 10px" ></a>
+          <a href="https://www.youtube.com/user/harasluanda" target="_blank" ><img src="img/youtube.jpg" style="margin: 10px" > </a>
+        </div>
+      </div>
+    </div>
 
     <?= $this->Html->script('bootstrap-4.1.0/dist/js/bootstrap.min'); ?>
         

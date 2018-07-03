@@ -137,7 +137,7 @@ class UsersController extends AppController
                     $email = new Email('default');
                     $email->from(['haras@harasluanda.com.br' => 'Haras Luanda'])
                         ->to($user->username)
-                        ->cc('getulio.sena.junior@gmail.com')
+                        ->bcc('getulio.sena.junior@gmail.com')
                         ->replyTo('haras@harasluanda.com.br')
                         ->emailFormat('html')
                         ->subject('USUÁRIO ATIVO - Haras Luanda')
