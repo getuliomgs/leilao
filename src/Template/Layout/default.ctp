@@ -19,12 +19,12 @@ use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
-
+/*
 if (!Configure::read('debug')):
     throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
+*/
+$cakeDescription = 'Haras Luanda - Leilões';
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     
-    <?= $this->Html->meta('icon') ?>
+    <?php $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css'); ?>
     
