@@ -54,7 +54,6 @@ class DadosTable extends Table
             ->notEmpty('nome_razao');
 
         $validator
-            ->integer('cpf_cnpj')
             ->requirePresence('cpf_cnpj', 'create')
             ->notEmpty('cpf_cnpj');
 
@@ -64,22 +63,18 @@ class DadosTable extends Table
             ->notEmpty('data_nasc');
 
         $validator
-            ->integer('tel')
             ->allowEmpty('tel');
 
         $validator
-            ->integer('cel')
             ->allowEmpty('cel');
 
         $validator
-            ->integer('cep')
             ->allowEmpty('cep');
 
         $validator
             ->allowEmpty('logradouro');
 
         $validator
-            ->integer('numero')
             ->allowEmpty('numero');
 
         $validator

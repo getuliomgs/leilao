@@ -10,13 +10,13 @@ use Cake\ORM\Entity;
  * @property int $users_id
  * @property \App\Model\Entity\User $user
  * @property string $nome_razao
- * @property int $cpf_cnpj
+ * @property string $cpf_cnpj
  * @property \Cake\I18n\Time $data_nasc
- * @property int $tel
- * @property int $cel
- * @property int $cep
+ * @property string $tel
+ * @property string $cel
+ * @property string $cep
  * @property string $logradouro
- * @property int $numero
+ * @property string $numero
  * @property string $complemento
  * @property string $bairro
  * @property string $estado
