@@ -289,37 +289,54 @@ class UsersController extends AppController
                    
                     $this->Flash->success(__('Usuário salvo com sucesso.'));
                     $email = new Email('default');
-                    $email->from(['getulio.sena.junior@gmail.com' => 'Haras Luanda'])
+                    $email->from(['haras@harasluanda.com.br' => 'Cadastro Site - Haras Luanda'])
                     ->to($this->request->data['email'])
-                    ->replyTo('harasluanda@gmail.com')
+                    ->replyTo('haras@harasluanda.com.br')
                     ->emailFormat('html')
                     ->subject('Pré-cadastro - Haras Luanda')
                     ->send(
                         
-                        '<h2>Olá, '.$dados->nome_razao.'</h2>'.
+                        '<h2>Olá, '.$dados->nome_razao.'</h2><br />'.
                         'O seu pré-cadastro foi realizado com sucesso.<br /><br />'.
 
-                        'Seu  usuário encontra-se pendente de aprovação com prazo médio de 24hs para liberação.<br /><br >'.
+                        'Seu  usuário encontra-se pendente de aprovação com prazo médio de 48hs para liberação.<br /><br >'.
 
                         'Você recebera um e-mail confirmando liberação!'.
                         
                         'Atenciosamente,<br />'. 
                         'Equipe Haras Luanda <br />'.
-                        'harasluanda@gmail.com'
+                        'haras@harasluanda.com.br<br />
+                        Rodrigo Vilas Boas (Administrador): (71) 99958-6750<br />
+                        Av. Alphaville, nº 522, Quadra F4 Lote 01, Ed. Alpha Business 3º Andar, Sala 302, Alphaville I Salvador - Bahia - Brasil CEP: 41701-015'
                     );
 
-                    $email->from(['getulio.sena.junior@gmail.com' => 'Haras Luanda'])
-                    ->to('harasluanda@gmail.com')
-                    ->cc('getulio.sena.junior@gmail.com')
-                    ->replyTo('harasluanda@gmail.com')
+                    $email->from(['haras@harasluanda.com.br' => 'Haras Luanda Sistema'])
+                    ->to('haras@harasluanda.com.br')
+                    ->bcc('getulio.sena.junior@gmail.com')
+                    ->replyTo('haras@harasluanda.com.br')
                     ->emailFormat('html')
-                    ->subject('NOVO USUÁRIO - Haras Luanda')
+                    ->subject('NOVO USUÁRIO SITE - Haras Luanda')
                     ->send(
                         
                         '<h2>Olá,</h2>'.
                         'O usuário ( '.$user->username.' ) acabou de ser cadastrar no site e estar aguardando aprovação.<br /><br />'.
 
                         'Data cadastro: '.$this->Users->save($user)->created.'<br /><br >'.
+
+                        'Nome / Razão: '.$this->request->data['nome_razao'].'<br />'.
+                        'E-mail: '.$this->request->data['email'].'<br />'.
+                        'CPF / CNPJ: '.$this->request->data['cpf_cnpj'].'<br />'.
+                        'Data Nasc.: '.$this->request->data['data_nasc'].'<br />'.
+                        'Tel.: '.$this->request->data['tel'].'<br />'.
+                        'Cel.: '.$this->request->data['Cel'].'<br />'.
+                        'CEP.: '.$this->request->data['cep'].'<br />'.
+                        'Logradouro.: '.$this->request->data['logradouro'].'<br />'.
+                        'Número.: '.$this->request->data['numero'].'<br />'.
+                        'Complemento.: '.$this->request->data['complemento'].'<br />'.
+                        'Bairro: '.$this->request->data['bairro'].'<br />'.
+                        'Estado: '.$this->request->data['estado'].'<br />'.
+                        'Cidade: '.$this->request->data['cidade'].'<br /><br />'.
+
                         
                         'Atenciosamente,<br />'. 
                         'Sistema leilao Haras Luanda <br />'.
