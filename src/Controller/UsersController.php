@@ -147,11 +147,11 @@ class UsersController extends AppController
                             'Seu usuário ( '.$user->username.' ) está apto para dar lances.<br /><br />'.
 
                             'Para completar seu cadastro, clique no link abaixo e crie a sua senha. <br />'.
-                            '<a href="http://harasluanda.com.br/users/confirmar/'.$id.'?data='.$user->created.'&key='.$user->password.'">Acesse este Link  para criar sua senha</a><br /><br />'.
+                            '<a href="http://harasluanda.com.br/leilao/users/confirmar/'.$id.'?data='.$user->created.'&key='.$user->password.'">Acesse este Link  para criar sua senha</a><br /><br />'.
                             
                             'Atenciosamente,<br />'. 
                             'Sistema leilao Haras Luanda <br />'.
-                            'harasluanda@gmail.com'
+                            'haras@harasluanda.com.br'
                         );
                         $this->Flash->success(__('Um email comunicando status avito foi enviado'));
                 }
@@ -270,7 +270,7 @@ class UsersController extends AppController
     {   
         if ($this->request->is('post')) {
             $this->request->data['data_nasc'] = $this->format_data($this->request->data['data_nasc']);
-                      
+
             $user = $this->Users->newEntity();
             
             $dadosTable = TableRegistry::get('Dados');
@@ -287,6 +287,7 @@ class UsersController extends AppController
                 if($dadosTable->save($dados)) {
                    
                     $this->Flash->success(__('Usuário salvo com sucesso.'));
+                    
                     $email = new Email('default');
                     $email->from(['haras@harasluanda.com.br' => 'Cadastro Site - Haras Luanda'])
                     ->to($this->request->data['email'])
@@ -309,7 +310,8 @@ class UsersController extends AppController
                         Av. Alphaville, nº 522, Quadra F4 Lote 01, Ed. Alpha Business 3º Andar, Sala 302, Alphaville I Salvador - Bahia - Brasil CEP: 41701-015'
                     );
 
-                    $email->from(['haras@harasluanda.com.br' => 'Haras Luanda Sistema'])
+                     $email2 = new Email('default');
+                    $email2->from(['haras@harasluanda.com.br' => 'Haras Luanda Sistema'])
                     ->to('haras@harasluanda.com.br')
                     ->bcc('getulio.sena.junior@gmail.com')
                     ->replyTo('haras@harasluanda.com.br')
@@ -341,8 +343,11 @@ class UsersController extends AppController
                         'Sistema leilao Haras Luanda <br />'.
                         'getulio.sena.junior@gmail.com'
                     );
-                    unset($this->request->data);
-                    $this->Flash->success(__('Um e-mail de pré-cadastro foi enviado para '.$user->username.', favor acessar!'));
+                   
+                    
+                    $this->Flash->success(__('Um e-mail de pré-cadastro foi enviado para '.$user->username.', favor 
+                    acessar!'));
+                    
                     //reset form
                 }else{
                     $this->Flash->error(__('Erro contate administrador Rodrigo Vilas Boas (71) 99958-6750'));
