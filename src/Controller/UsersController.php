@@ -135,10 +135,10 @@ class UsersController extends AppController
                 $user = $this->Users->get($id);
                 if($this->request->data['status'] == 'A'){
                     $email = new Email('default');
-                    $email->from(['getulio.sena.junior@gmail.com' => 'Haras Luanda'])
+                    $email->from(['haras@harasluanda.com.br' => 'Haras Luanda'])
                         ->to($user->username)
                         ->cc('getulio.sena.junior@gmail.com')
-                        ->replyTo('harasluanda@gmail.com')
+                        ->replyTo('haras@harasluanda.com.br')
                         ->emailFormat('html')
                         ->subject('USUÁRIO ATIVO - Haras Luanda')
                         ->send(
@@ -300,7 +300,7 @@ class UsersController extends AppController
 
                         'Seu  usuário encontra-se pendente de aprovação com prazo médio de 48hs para liberação.<br /><br >'.
 
-                        'Você recebera um e-mail confirmando liberação!'.
+                        'Você recebera um e-mail confirmando liberação!<br />'.
                         
                         'Atenciosamente,<br />'. 
                         'Equipe Haras Luanda <br />'.
