@@ -100,6 +100,8 @@ class lancesComponent extends Component {
                     'Seu lance no lote '.$lance->animais_id.' foi superado.<br /><br />'.
 
                     'Não perca essa oportunidade.<br /><br />'.
+
+                    '<a href="http://harasluanda.com.br/leilao/animais/leilao/'.$lance->animais_id.'"><h2>Clique aqui e retome seu lance!</h2></a><br /><br />'.
                     
                     'Atenciosamente,<br />'. 
                     'Equipe Haras Luanda <br />'.

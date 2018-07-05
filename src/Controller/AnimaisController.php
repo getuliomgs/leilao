@@ -382,6 +382,10 @@ class AnimaisController extends AppController
   { 
       
     $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro', 'arrematante']);
+
+    $animai = $this->Animais->get($id, [
+          'contain' => []
+      ]);
     $this->autoRender = false;
     $this->viewBuilder()->layout('ajax');
 
@@ -390,18 +394,32 @@ class AnimaisController extends AppController
     $lance->animais_id = $id;
     $lance->users_id = $this->request->session()->read()['Auth']['User']['id'];
     $lance->valor = $this->request->query['lanceAtual'];
-    if ($lances->save($lance)) {
-      echo  "
-            <div class='col-12'><h2>Parabéns</h2></div>
-            <div class='col-12'><h4>Você é o atual arrematante desse Lote!</h4></div>
-            <div class='col-12'><a href='javascript:history.back() ' ><button id=\"buttonAtualizar\" type=\"button\" class=\"btn btn-success btn-primary btn-lg btn-block\">ATUALIZAR</button></a></div>
-          ";
-      $this->lances->comunicarLance($lance);
+    
+    //verificar se ainda a tempo para lance
+    //verifciar se a lance é maior
+    //verificar se o animal esta ativo
+    if( ($animai->status_2 == 'A')  AND ($animai->data_leilao_ini < Time::now() AND $animai->data_leilao_fim > Time::now()) AND (empty($this->lances->lanceMaior($id)) OR $this->lances->lanceMaior($id)->valor < (float) $lance->valor )){
+      if ($lances->save($lance)) {
+        echo  "
+              <div class='col-12'><h2>Parabéns</h2></div>
+              <div class='col-12'><h4>Você é o atual arrematante desse Lote!</h4></div>
+              <div class='col-12'><a href='javascript:history.back() ' ><button id=\"buttonAtualizar\" type=\"button\" class=\"btn btn-success btn-primary btn-lg btn-block\">ATUALIZAR</button></a></div>
+            ";
+        $this->lances->comunicarLance($lance);
+      }else{
+        echo  "
+              <div class='col-12'><h2>Erro no processamento do Lance.</h2></div>
+              <div class='col-12'><h4>Contate administrador Rodrigo Vilas Boas (71) 99958-6750</h4></div>
+            ";
+      }
     }else{
-      echo  "
-            <div class='col-12'><h2>Erro no processamento do Lance.</h2></div>
-            <div class='col-12'><h4>Contate administrador Rodrigo Vilas Boas (71) 99958-6750</h4></div>
-          ";
+       echo  "
+              <div class='col-12'><h2>Opa, não foi possível computar seu lance!</h2></div>
+              <div class='col-12'><h4>Verifique se existe um lance maior ou igual ao seu ou se o período para lances esgotou.</h4></div>
+              <div class='col-12'><h4>Atualize e tente novamente.</h4></div>
+              <div class='col-12'><a href='javascript:history.back() ' ><button id=\"buttonAtualizar\" type=\"button\" class=\"btn btn-success btn-primary btn-lg btn-block\">ATUALIZAR</button></a></div>
+            ";
     }
+      
   }
 }
