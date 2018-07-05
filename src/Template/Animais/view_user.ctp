@@ -1,13 +1,13 @@
 <?php
 
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" >
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Editar animal'), ['action' => 'edit', $animai->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Deletar animal'), ['action' => 'delete', $animai->id], ['confirm' => __('Confirmar deletar animail # {0}?', $animai->id)]) ?> </li>
-        <li><?= $this->Html->link(__('Listar animais'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Animal'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Editar animal'), ['action' => 'editUser', $animai->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Deletar animal'), ['action' => 'deleteUser', $animai->id], ['confirm' => __('Confirmar deletar animail # {0}?', $animai->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Listar animais'), ['action' => 'indexUser']) ?> </li>
+        <li><?= $this->Html->link(__('Novo Animal'), ['action' => 'addUser']) ?> </li>
     </ul>
 </nav>
 <div class="animais view large-9 medium-8 columns content">

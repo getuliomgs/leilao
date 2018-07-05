@@ -1,12 +1,12 @@
 <?php
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" >
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $dado->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $dado->id)]
+                ['action' => 'deleteUser', $dado->id],
+                ['confirm' => __('Confirmar exclusão dos dados # {0}?', $dado->id)]
             )
         ?></li>
         <li><?= $this->Html->link(__('Listar'), ['action' => 'indexUser']) ?></li>
