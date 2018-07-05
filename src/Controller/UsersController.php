@@ -188,7 +188,7 @@ class UsersController extends AppController
                 unset($user->password);
             }
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Salvo!'));
+                $this->Flash->success(__('Salvo com sucesso!'));
                 return $this->redirect(['action' => 'editUserOne']);
             } else {
                 $this->Flash->error(__('Tente novamente!'));

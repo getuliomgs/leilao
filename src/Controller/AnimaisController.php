@@ -396,6 +396,7 @@ class AnimaisController extends AppController
             <div class='col-12'><h4>Você é o atual arrematante desse Lote!</h4></div>
             <div class='col-12'><a href='javascript:history.back() ' ><button id=\"buttonAtualizar\" type=\"button\" class=\"btn btn-success btn-primary btn-lg btn-block\">ATUALIZAR</button></a></div>
           ";
+      $this->lances->comunicarLance($lance);
     }else{
       echo  "
             <div class='col-12'><h2>Erro no processamento do Lance.</h2></div>

@@ -17,7 +17,7 @@
     </p>
     <br />
     <p>
-        4° - FIQUE TRANQUILO. Em até 24 hs, você receberá uma nova notificação em seu e-mail confirmando a sua aprovação;
+        4° - FIQUE TRANQUILO. Em até 48hs, você receberá uma nova notificação em seu e-mail confirmando a sua aprovação;
     </p>
     <br />
     <p>

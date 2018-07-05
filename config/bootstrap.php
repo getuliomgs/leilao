@@ -87,7 +87,8 @@ if (!Configure::read('debug')) {
  * choice but using UTC makes time calculations / conversions easier.
  */
 date_default_timezone_set('America/Bahia');
-
+Cake\I18n\FrozenDate::setToStringFormat('dd/MM/yyyy');
+Cake\I18n\FrozenTime::setToStringFormat('dd/MM/yyyy HH:mm:ss');
 /**
  * Configure the mbstring extension to use the correct encoding.
  */
@@ -205,8 +206,14 @@ Plugin::load('Migrations');
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
+
 if (Configure::read('debug')) {
+
     Plugin::load('DebugKit', ['bootstrap' => true]);
+    //Configure::write('DebugKit.panels', ['DebugKit.Packages' => false]);
+    //Configure::write('DebugKit.forceEnable', false);
+    //Configure::write('DebugKit.forceEnable', false);
+    
 }
 
 /**

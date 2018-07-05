@@ -178,7 +178,9 @@
     </div>
     <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" >
       <div style=" background: #CCC;  solid black; border-radius: 5px;">     
-        <strong><?= h($animai->nome) ?></strong>
+        <strong><?= h($animai->nome) ?></strong><br />
+        <strong>Lote: <?= h($animai->id) ?></strong><br />
+
         <p style="font-size:small; line-height:1.5 "><?php echo nl2br($animai->descricao); ?>
         </p>
         <div id="videoYoutube"></div>
@@ -233,9 +235,9 @@
                   <span aria-hidden="true">&times;</span>
                   <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Dê seu lance: Lote <strong><?= h($animai->id) ?> - <?= h($animai->nome) ?></strong></h4>
+                <h4 class="modal-title" id="myModalLabel">EM BREVE: Lote <strong><?= h($animai->id) ?> - <?= h($animai->nome) ?></strong></h4>
               </div>
-              <div class="modal-body"> <button type="button" class="btn btn-success">LANCE</button></div>
+              <div class="modal-body"> O lote <strong><?= h($animai->id) ?> - <?= h($animai->nome) ?></strong>, estará disponível a partir de <?= $animai->data_leilao_ini ?></div>
             </div>
           </div>
         </div>
@@ -368,7 +370,7 @@
                   Fração do seu lance:
                 </div>
                 <div class="col-6 col-sm-6  col-md-6  col-lg-6  col-xl-6">
-                  62x de R$ <span  name="lanceAtual" ><?= $lanceAtual ?></span>,00
+                  <?= $animai->parcelas ?>x de R$ <span  name="lanceAtual" ><?= $lanceAtual ?></span>,00
                 </div>
                 <div class="col-12">
                   <button name="efetuarLance" type="button" class="btn btn-success btn-lg btn-block">Efeturar Lance</button>

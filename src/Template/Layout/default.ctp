@@ -19,11 +19,11 @@ use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
-/*
+
 if (!Configure::read('debug')):
     throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
-*/
+
 $cakeDescription = 'Haras Luanda - Leilões';
 ?>
 <!DOCTYPE html>
@@ -196,9 +196,9 @@ $cakeDescription = 'Haras Luanda - Leilões';
         <div class="col-md-4">
           <h3 style="color: #FFF">Redes sociais</h3>
           <!--  -->
-
-          <a href="https://www.facebook.com/haras.luanda.94?ref=br_rs" target="_blank" ><img src="img/facebook.jpg" style="margin: 10px" ></a>
-          <a href="https://www.youtube.com/user/harasluanda" target="_blank" ><img src="img/youtube.jpg" style="margin: 10px" > </a>
+          <?= $this->html->image('facebook.jpg', ['alt'=>'facebook Haras Luanda', 'url'=>'https://www.facebook.com/haras.luanda.94?ref=br_rs' , 'target'=>"_blank", 'style'=>"margin: 10px" ]); ?>
+          <?= $this->Html->image('youtube.jpg', ['alt'=>'Youtube Haras Luanda', 'url'=>'https://www.youtube.com/user/harasluanda' ,'target'=>"_blank", 'style'=>"margin: 10px" ]); ?>
+          
         </div>
       </div>
     </div>
