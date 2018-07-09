@@ -1,5 +1,6 @@
 <?php
 
+
 ?>
 <nav class="large-3 medium-4 columns" >
     <ul class="side-nav">
@@ -30,7 +31,7 @@
                 <td>
                     <?= $lance->animai->nome ?>
                 </td>
-                <td><?= $this->Number->format($lance->valor) ?></td>
+                <td><?= number_format($lance->valor, 2, ',','.') ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'viewUser', $lance->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'editUser', $lance->id]) ?>

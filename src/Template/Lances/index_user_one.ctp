@@ -22,7 +22,7 @@
                 <td>
                     <?= $lance->animai->nome ?>
                 </td>
-                <td><?= $this->Number->format($lance->valor) ?></td>
+                <td><?= number_format($lance->valor,2,',','.') ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

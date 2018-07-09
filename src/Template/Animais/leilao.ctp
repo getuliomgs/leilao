@@ -102,7 +102,7 @@
         var lanceAtualBD = parseFloat($("input[name=\'lanceAtual\']").val());
         lanceAtual = lanceAtual + valor;
         if(lanceAtual > lanceAtualBD) {
-          $("#modalLanceButtonLanceAtual").html("R$ "+lanceAtual);
+          $("#modalLanceButtonLanceAtual").html("R$ "+lanceAtual+",00");
           $("#modalLanceButtonLanceAtual").val(lanceAtual);  
           $("span[name=\'lanceAtual\']").html("R$ "+lanceAtual);
         }else{
@@ -298,14 +298,14 @@
         <div style="border-radius: 10px; background:rgba(95, 185, 90, 0.18); padding: 12px 10px 2px 20px; margin-top: 3px;">
           <p>
             <i class="fa fa-gavel"></i>&nbsp;
-            <strong>&#218;ltimo Lance:</strong><?= h($animai->parcelas) ?> x de <?= h($value->valor) ?>
+            <strong>&#218;ltimo Lance:</strong><?= h($animai->parcelas) ?> x de <?= h(number_format($value->valor,2,',','.')) ?>
           </p>
           <small style="float: right;margin-top: -32px;"><?= h($this->animais->diasPassados($value->created)) ?></small>
         </div>
       <?php } else { ?>
         <div style="border-radius: 10px; background:#f9f9f9; padding: 12px 10px 2px 20px; margin-top: 3px;">    
           <p>
-            <i class="fa fa-gavel"></i>&nbsp;<strong>Lance:</strong> <?= h($animai->parcelas) ?> x de R$ <?= h($value->valor) ?>
+            <i class="fa fa-gavel"></i>&nbsp;<strong>Lance:</strong> <?= h($animai->parcelas) ?> x de R$ <?= h(number_format($value->valor,2,',','.')) ?>
           </p>
           <small style="float: right;margin-top: -32px;"><?= h($this->animais->diasPassados($value->created)) ?></small>
         </div>
@@ -320,7 +320,7 @@
       <?php if($qtd < 5 and  $lances->count() > 0): ?>
         <div style="border-radius: 10px; background:#f9f9f9; padding: 12px 10px 2px 20px; margin-top: 3px;">    
           <p>
-            <i class="fa fa-gavel"></i>&nbsp;<strong>Lance:</strong><?= h($animai->parcelas) ?> x de R$ <?= h($animai->valor) ?>
+            <i class="fa fa-gavel"></i>&nbsp;<strong>Lance:</strong><?= h($animai->parcelas) ?> x de R$ <?= h(number_format($animai->valor,2,',','.')) ?>
           </p>
           <small style="float: right;margin-top: -32px;"><?= h($this->animais->diasPassados($animai->data_leilao_ini)) ?></small>
         </div>
@@ -352,14 +352,17 @@
             <div class="col-12 col-sm-12  col-md-12  col-lg-7  col-xl-7" style="padding-bottom: 5px">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-3" style="padding-bottom: 5px">
+                  <span style="font-size: 10">Adicionar<br /></span>
                   <button id="modalLanceButtonAdd10" type="button" class="btn btn-outline-success"> + R$ 10</button>
                   <button id="modalLanceButtonAdd50" type="button" class="btn btn-outline-success"> + R$ 50</button>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6" style="padding-bottom: 5px">
-                  <button id="modalLanceButtonLanceAtual" value="<?= $lanceAtual ?>" type="button" style="height: 100%" class="btn btn-ln btn-block btn-outline-success"> R$ <?= $lanceAtual ?></button>
+                  <span style="font-size: 10">SEU Lance<br /></span>
+                  <button id="modalLanceButtonLanceAtual" value="<?= $lanceAtual ?>" type="button" style="height: 100px; font-size: 28" class="btn btn-ln btn-block btn-outline-success"> R$ <?= $lanceAtual ?>,00</button>
                   <input type="text" style="display: none;" name="lanceAtual" value="<?= $lanceAtual ?>">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3" >
+                  <span style="font-size: 10">Subtrair<br /></span>
                   <button id="modalLanceButtonSub10" type="button" class="btn btn-outline-secondary"> - R$ 10</button>
                   <button id="modalLanceButtonSub50" type="button" class="btn btn-outline-secondary"> - R$ 50</button>
                 </div>

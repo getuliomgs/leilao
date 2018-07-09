@@ -166,6 +166,8 @@ $cakeDescription = 'Haras Luanda - Leilões';
         <div class="col-md-4">
           <h3 style="color: #FFF">Contatos</h3>
           <p>
+          Telefone: (71) 2104-0479<br /><br />
+          <p>
           Rodrigo Vilas Boas (Administrador): (71) 99958-6750<br /><br />
 
           E-mail: haras@harasluanda.com.br<br /><br />

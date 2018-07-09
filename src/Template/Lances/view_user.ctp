@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <th><?= __('Valor') ?></th>
-            <td><?= $this->Number->format($lance->valor) ?></td>
+            <td><?= number_format($lance->valor,2,',','.') ?></td>
         </tr>
         <tr>
             <th><?= __('Criado') ?></th>

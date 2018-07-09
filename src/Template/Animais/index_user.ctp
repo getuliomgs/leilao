@@ -28,7 +28,7 @@
                 <td><?= $this->Number->format($animai->id) ?></td>
                 <td><?= h($animai->nome) ?></td>
                 <td><?= h($animai->data_nasc) ?></td>
-                <td><?= $this->Number->format($animai->valor) ?></td>
+                <td><?= number_format($animai->valor,2,',','.') ?></td>
                 <td><?= h($animai->status_2) ?></td>
                 <td><?= h($animai->data_leilao_ini) ?></td>
                 <td><?= h($animai->data_leilao_fim) ?></td>
