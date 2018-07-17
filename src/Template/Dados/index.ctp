@@ -1,3 +1,6 @@
+<?php
+
+?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -8,6 +11,7 @@
 </nav>
 <div class="dados index large-9 medium-8 columns content">
     <h3><?= __('Dados') ?></h3>
+    <?= $this->Html->link('print', 'my.bluetoothprint.scheme://http://localhost:8765/dados/export.json') ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

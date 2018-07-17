@@ -3,6 +3,10 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+// Prior to 3.6 
+use Cake\Network\Exception\NotFoundException;
+//use Cake\Http\Exception\NotFoundException;
+
 /**
  * Dados Controller
  *
@@ -10,6 +14,12 @@ use App\Controller\AppController;
  */
 class DadosController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
 
     /**
      * Index method
@@ -151,13 +161,13 @@ class DadosController extends AppController
         $this->set('_serialize', ['dado']);
     }
 
-     /**
+    /**
      * DeleteUser method
      *
      * @param string|null $id Dado id.
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+    */
     public function deleteUser($id = null)
     {
         $this->testeAuth($this->request->session()->read()['Auth']['User']['role'], ['superUser', 'leiloeiro']);
@@ -170,4 +180,16 @@ class DadosController extends AppController
         }
         return $this->redirect(['action' => 'indexUser']);
     }
+
+    public function export()
+    {
+        // Set the view vars that have to be serialized.
+        $this->set('dados', $this->paginate());
+        // Specify which view vars JsonView should serialize.
+        $this->set('_serialize', 'dados');
+    }
+        
+    
+
+
 }

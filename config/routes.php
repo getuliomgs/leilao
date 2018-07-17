@@ -48,6 +48,7 @@ Router::defaultRouteClass('DashedRoute');
  * 
  */
 Router::extensions(['pdf']);
+Router::extensions(['json']);
 //Router::mapResources(['Deceases']);
 
 /**
