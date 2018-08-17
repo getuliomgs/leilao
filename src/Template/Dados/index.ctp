@@ -11,7 +11,6 @@
 </nav>
 <div class="dados index large-9 medium-8 columns content">
     <h3><?= __('Dados') ?></h3>
-    <?= $this->Html->link('print', 'my.bluetoothprint.scheme://http://harasluanda.com.br/leilao/dados/export.json') ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

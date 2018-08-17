@@ -76,6 +76,8 @@ $cakeDescription = 'Haras Luanda - Leilões';
                         <li class="first"><?= $this->Html->link(__('Usuários'), ['controller' => 'users', 'action' => '']) ?></li>
                         <li class="first"><?= $this->Html->link(__('Animais'), ['controller' => 'animais', 'action' => '']) ?></li>
                         <li><?= $this->Html->link(__('Lances'), ['controller' => 'lances', 'action' => '']) ?></li>
+                        <li><?= $this->Html->link(__('Dados'), ['controller' => 'dados', 'action' => '']) ?></li>
+                        <li><?= $this->Html->link(__('Eventos'), ['controller' => 'eventos', 'action' => '']) ?></li>
                         <li class="last"><?= $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']) ?></li>
 
 <?php
@@ -134,6 +136,7 @@ $cakeDescription = 'Haras Luanda - Leilões';
             echo $this->html->link('Lances', ['controller'=>'lances', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
             echo $this->html->link('Usuários', ['controller'=>'users', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
             echo $this->html->link('Dados', ['controller'=>'dados', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
+            echo $this->html->link('Leilão', ['controller'=>'eventos', 'action'=>'indexUser'], ['class'=>'dropdown-item']);
             echo $this->html->link('Sair', ['controller'=>'users', 'action'=>'logout'],['class'=>'dropdown-item']);
           }
           if($this->request->session()->read()['Auth']['User']['role'] == 'arrematante'){

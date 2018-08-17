@@ -227,6 +227,42 @@
         <?php if($flagLeilao == "EMB"):  ?>
           <?php echo $this->Html->link('EM BREVE', '#emb', array('data-toggle' => 'modal', 'class' => 'btn btn-warning btn-lg btn-block' )); ?>
         <?php endif; ?>
+        <?php echo $this->Html->link('REGULAMENTO', '#regulamento', array('data-toggle' => 'modal', 'class' => 'btn btn-warning btn-lg btn-block bd-example-modal-lg' )); ?>
+        
+
+        <!-- MODAL 
+        <div class="modal fade bd-example-modal-lg" id="regulamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              ...
+            </div>
+          </div>
+        </div>
+-->
+      <!-- Modal regulamento -->
+    <div class="modal" id="regulamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Regulamento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>      
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
         <div class="modal fade" id="emb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" style="width: 80%">
             <div class="modal-content">

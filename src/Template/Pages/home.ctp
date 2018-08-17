@@ -24,5 +24,6 @@ if (!Configure::read('debug')):
     throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
 $this->extend('../Layout/default');
+
 ?>
 

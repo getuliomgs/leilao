@@ -63,19 +63,19 @@
             echo $this->Form->input('link_video');
             echo $this->Form->file('foto_1');
             if(!empty($animai->foto_1)){
-                echo '<img src="../../uploads/animais/'.$animai->foto_1.'" width="150" height="150" >';;    
+                echo '<img src="../../uploads/animais/'.$animai->foto_1.'" width="150" height="150" >';    
             }
             echo $this->Form->file('foto_2');
             if(!empty($animai->foto_2)){
-                echo '<img src="../../uploads/animais/'.$animai->foto_2.'" width="150" height="150" >';;    
+                echo '<img src="../../uploads/animais/'.$animai->foto_2.'" width="150" height="150" >';    
             }
             echo $this->Form->file('foto_3');
             if(!empty($animai->foto_3)){
-                echo '<img src="../../uploads/animais/'.$animai->foto_3.'" width="150" height="150" >';;    
+                echo '<img src="../../uploads/animais/'.$animai->foto_3.'" width="150" height="150" >';    
             }
             echo $this->Form->file('foto_4');
             if(!empty($animai->foto_4)){
-                echo '<img src="../../uploads/animais/'.$animai->foto_4.'" width="150" height="150" >';;    
+                echo '<img src="../../uploads/animais/'.$animai->foto_4.'" width="150" height="150" >';    
             }
             echo $this->Form->input('geneologia', ['type'=>'textarea', 'label'=>'Geneologia']);
             echo $this->Form->input('valor');
