@@ -63,7 +63,7 @@ class PagesController extends AppController
 
         foreach (TableRegistry::get('eventos')->find()->limit(1)->order(['data_ini' => "DESC"]) as $key => $value) {
             
-            $eventos = "../../uploads/eventos/".$value->img;
+            $eventos = "uploads/eventos/".$value->img;
             
         }
 
