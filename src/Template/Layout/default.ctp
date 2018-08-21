@@ -157,7 +157,7 @@ $cakeDescription = 'Haras Luanda - Leilões';
 
 </nav>
 
-    <section >
+    <section style="margin-left: 0; margin-right: 0" >
         <?= $this->fetch('content') ?>
     </section>
     <footer>

@@ -56,11 +56,14 @@
             );
 
             echo $this->Form->input('link_video');
-            echo $this->Form->file('foto_1');
+            echo $this->Form->label('', ['label'=>'Fotos em .jpg']);
+            echo $this->Form->file('foto_1',['label'=>'Foto 1']);
             echo $this->Form->file('foto_2');
             echo $this->Form->file('foto_3');
             echo $this->Form->file('foto_4');
             echo $this->Form->input('geneologia', ['type'=>'textarea', 'label'=>'Geneologia']);
+            echo $this->Form->label('', ['label'=>'Fotos em .jpg']);
+            echo $this->Form->file('geneologia_img');
             echo $this->Form->input('valor');
             echo $this->Form->input('parcelas');
             echo $this->Form->input('data_leilao_ini', ['empty' => true]);

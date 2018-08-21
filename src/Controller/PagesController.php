@@ -22,6 +22,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\I18n\FrozenTime;
+use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -33,6 +34,7 @@ use Cake\I18n\FrozenTime;
 class PagesController extends AppController
 {
 
+    public $components = array('eventos');
     /**
      * Displays a view
      *
@@ -56,7 +58,16 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        
+        $eventos = "";
+
+        foreach (TableRegistry::get('eventos')->find()->limit(1)->order(['data_ini' => "DESC"]) as $key => $value) {
+            
+            $eventos = "../../uploads/eventos/".$value->img;
+            
+        }
+
+        $this->set(compact('page', 'subpage', 'eventos'));
 
         try {
             $this->render(implode('/', $path));

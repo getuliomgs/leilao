@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\Time;
+use Cake\ORM\TableRegistry;
 
 /**
  * Leiloes Controller
@@ -48,8 +49,14 @@ class LeiloesController extends AppController
             $flagLeilao[$key] = $this->animais->flagLeilao($value->data_leilao_ini, $value->data_leilao_fim, $time);
             $lances[$value->id] = $this->lances->lanceMaior($value->id);
         }
+        $eventos = "";
+        foreach (TableRegistry::get('eventos')->find()->limit(1)->order(['data_ini' => "DESC"]) as $key => $value) {
+            
+            $eventos = $value;
+            
+        }
         
-        $this->set(compact('listarAnimais','flagLeilao', 'lances'));
+        $this->set(compact('listarAnimais','flagLeilao', 'lances', 'eventos'));
         $this->set('_serialize', [$listarAnimais, $flagLeilao, $lances]);
     }
 

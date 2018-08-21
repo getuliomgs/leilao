@@ -92,6 +92,9 @@ class AnimaisTable extends Table
             ->allowEmpty('geneologia');
 
         $validator
+            ->allowEmpty('geneologia_img');
+
+        $validator
             ->decimal('valor')
             ->allowEmpty('valor');
 

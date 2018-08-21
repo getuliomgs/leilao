@@ -24,6 +24,8 @@ if (!Configure::read('debug')):
     throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
 $this->extend('../Layout/default');
+echo $this->html->image($eventos, ['url'=> 'leiloes/index_user', 'width'=>"100%"]);
+
 
 ?>
 

@@ -61,6 +61,7 @@
                 ]
             );
             echo $this->Form->input('link_video');
+            echo $this->Form->label('', ['label'=>'Fotos em .jpg']);
             echo $this->Form->file('foto_1');
             if(!empty($animai->foto_1)){
                 echo '<img src="../../uploads/animais/'.$animai->foto_1.'" width="150" height="150" >';    
@@ -78,6 +79,11 @@
                 echo '<img src="../../uploads/animais/'.$animai->foto_4.'" width="150" height="150" >';    
             }
             echo $this->Form->input('geneologia', ['type'=>'textarea', 'label'=>'Geneologia']);
+            echo $this->Form->label('', ['label'=>'Fotos em .jpg']);
+            echo $this->Form->file('geneologia_img');
+            if(!empty($animai->geneologia_img)){
+                echo '<img src="../../uploads/animais/'.$animai->geneologia_img.'" width="150" height="150" >';    
+            }
             echo $this->Form->input('valor');
             echo $this->Form->input('parcelas');
             echo $this->Form->input('data_leilao_ini', ['empty' => true]);

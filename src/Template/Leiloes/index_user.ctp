@@ -6,12 +6,12 @@
   
     jQuery(function($){
 
-       var YY = 2018;
-		var MM = 07;
-		var DD = 30;
-		var HH = 11;
-		var MI = 44;
-		var SS = 38; 
+       var YY = '.$eventos->data_fim->year.';
+		var MM = '.$eventos->data_fim->month.';
+		var DD = '.$eventos->data_fim->day.';
+		var HH = '.$eventos->data_fim->hour.';
+		var MI = '.$eventos->data_fim->minute.';
+		var SS = '.$eventos->data_fim->second.'; 
 
 		function atualizaContador() {
 
@@ -28,18 +28,18 @@
 		mm = mm - (hh * 60);
 		hh = hh - (dd * 24); 
 
-		var faltam = "";
+		var faltam = "Faltam ";
 		faltam += (dd && dd > 1) ? dd+" dias, " : (dd==1 ? "1 dia, " : "");
 		faltam += (toString(hh).length) ? hh+"h : " : "";
 		faltam += (toString(mm).length) ? mm+"m : " : "";
 		faltam += ss+"s"; 
+		faltam += " para o encerramento."; 
 
 			if (dd+hh+mm+ss > 0) {
 				document.getElementById("contador").innerHTML = faltam;
 				setTimeout(atualizaContador,1000);
 			} else {
 				document.getElementById("contador").innerHTML = "ENCERRADO!!!!";
-				document.getElementById("contador22").innerHTML = "ENCERRADO!!!!";
 				setTimeout(atualizaContador,1000);
 			}
 		}
@@ -50,11 +50,29 @@
     });
   ' ,  ['defer' => true])
 ?>
-<div class="container">
-                    <span id="timerLeilao15" class="contador"></span>
-                    <span id="contador22" class="contador"></span>
-                    <span id="contador" class="contador"></span>
 
+<div class="container">
+
+	<div class="eventos row">
+		<div class="col-	col-sm-	col-md-	col-lg-	col-xl-4" >
+			<?php echo $this->html->image('../uploads/eventos/'.$eventos->img2, ['width'=>"100%"]); ?> 
+		</div>
+		<div class="col-	col-sm-	col-md-	col-lg-	col-xl-8"  >
+			<?php
+				$meses = array(1=>'janeiro',2=>'fevereiro', 3=>'março',4=>'abril',5=>'maio',6=>'junho',7=>'julho',8=>'agosto',9=>'setembro',10=>'outubro',11=>'novembro',12=>'dezembro' );
+				echo "<h2>".'<strong>'.$eventos->nome.'</strong>';
+				echo "<br /><strong>Início:</strong> ".$eventos->data_ini->day." de ".$meses[$eventos->data_ini->month];
+				echo "<br /><strong>Encerramento: </strong> ".$eventos->data_fim->day." de ".$meses[$eventos->data_ini->month]." | ".$eventos->data_ini->hour."hs</h2>";
+			?>
+			<h3>
+				<strong>
+					<span id="timerLeilao15" class="contador"></span>
+        			<span  style="color: red; " id="contador" class="contador border border-danger"></span>
+        		</strong>
+        	</h3>
+		</div>        
+    </div>
+    <hr>
   	<div class="row">
   		<?php foreach($listarAnimais as $key => $value): ?>
 			<div class="col-md-4">

@@ -186,6 +186,7 @@ class AnimaisController extends AppController
           if ($this->Animais->save($animai)) {
 
               foreach ($_FILES as $key => $value) {
+
                   if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
 
                       $animai = $this->Animais->get($this->Animais->save($animai)->id);
@@ -193,13 +194,13 @@ class AnimaisController extends AppController
                       $animai->{$key} =  $this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']);
 
                       if($this->Animais->save($animai)) {
-                          $this->Flash->success(__('Sucesso'.$key));
+                          $this->Flash->success(__('Sucesso '.$key));
                       }else{
-                          $this->Flash->error(__('Erro'.$key));
+                          $this->Flash->error(__('Erro '.$key));
                       }
                   }else{
                       if($value['name'] != "") {
-                          $this->Flash->error(__('Erro ao salvar imagem'.$value['name']));
+                          $this->Flash->error(__('Erro ao salvar imagem '.$value['name']));
                       }
                   }
               }
@@ -238,12 +239,13 @@ class AnimaisController extends AppController
           unset($this->request->data['foto_2']);
           unset($this->request->data['foto_3']);
           unset($this->request->data['foto_4']);
+          unset($this->request->data['geneologia_img']);
           $this->request->data['data_nasc'] = $this->format_data($this->request->data['data_nasc']);
           $animai = $this->Animais->patchEntity($animai, $this->request->data);
           
           if ($this->Animais->save($animai)) {
 
-              debug(getcwd());
+              //debug(getcwd());
               
               foreach ($_FILES as $key => $value) {
                   if (move_uploaded_file($value['tmp_name'], $this->uploads2.$this->Animais->save($animai)->id."-".$key.".".$this->extencaoNome($value['name']))) {
@@ -257,13 +259,17 @@ class AnimaisController extends AppController
                       }else{
                           $this->Flash->error(__('Erro'.$key));
                       }
+                  }else{
+                      if($value['name'] != "") {
+                          $this->Flash->error(__('Erro ao salvar imagem '.$value['name']));
+                      }
                   }
               }
 
-              $this->Flash->success(__('The animai has been saved.'));
+              $this->Flash->success(__('Salvo.'));
               return $this->redirect(['action' => 'indexUser']);
           } else {
-              $this->Flash->error(__('The animai could not be saved. Please, try again.'));
+              $this->Flash->error(__('Erro ao Salvar.'));
           }
       }
       $this->set(compact('animai', 'sexo','pelagem','status_2'));
