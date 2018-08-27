@@ -76,13 +76,14 @@
             }
             echo $this->Form->file('foto_4');
             if(!empty($animai->foto_4)){
-                echo '<img src="../../uploads/animais/'.$animai->foto_4.'" width="150" height="150" >';    
+                echo $this->html->image("../../uploads/animais/".$animai->foto_4, ["height"=>"150" ,'width'=>"150"]);
             }
             echo $this->Form->input('geneologia', ['type'=>'textarea', 'label'=>'Geneologia']);
             echo $this->Form->label('', ['label'=>'Fotos em .jpg']);
             echo $this->Form->file('geneologia_img');
             if(!empty($animai->geneologia_img)){
-                echo '<img src="../../uploads/animais/'.$animai->geneologia_img.'" width="150" height="150" >';    
+                
+                echo $this->html->image("../../uploads/animais/".$animai->geneologia_img, ["height"=>"150" ,'width'=>"150"]);
             }
             echo $this->Form->input('valor');
             echo $this->Form->input('parcelas');
