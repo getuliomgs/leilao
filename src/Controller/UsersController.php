@@ -25,7 +25,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // Add the 'add' action to the allowed actions list.
-        $this->Auth->allow(['logout', 'cadastro','login', 'confirmar']);
+        $this->Auth->allow(['logout', 'cadastro','login', 'confirmar','recuperarSenha']);
     }
 
     /**
@@ -454,6 +454,54 @@ class UsersController extends AppController
             $this->Flash->error(__('Erro na exclusão.'));
         }
         return $this->redirect(['action' => 'indexUser']);
+    }
+
+
+    /**
+     * recuperar senha method
+     *
+     * @param string|null $username User id.
+     * @return \Cake\Network\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function recuperarSenha()
+    {
+        if ($this->request->is('post')) {
+            //consulta usuário
+            $usersQuery = TableRegistry::get('users')->find()->where(['username' => $this->request->data['email']]);
+            foreach ($usersQuery as $key => $valueUser) {
+                $user = $valueUser;
+            } 
+            if(isset($user)){
+                if($user->username == $this->request->data['email']){
+                    $email = new Email('default');
+                    $email->from(['haras@harasluanda.com.br' => 'Haras Luanda'])
+                        ->to($user->username)
+                        ->bcc('getulio.sena.junior@gmail.com')
+                        ->replyTo('haras@harasluanda.com.br')
+                        ->emailFormat('html')
+                        ->subject('RECUPERAR SENHA - Haras Luanda')
+                        ->send(
+                            
+                            '<h2>Olá,</h2>'.
+                            'Recebemos o seu pedido para recuperação de senha. Para sua segurança, esta ação só será realizada após a confirmação da solicitação.<br />'.
+                            'Clique o link abaixo, para criar uma nova senha.<br />'.
+                            '<a href="http://harasluanda.com.br/leilao/users/confirmar/'.$user->id.'?data='.$user->created.'&key='.$user->password.'">Acesse este Link  para recupear senha.</a><br /><br /><br />'.
+                           
+                           
+                            'Se você acredita que alguém solicitou a recuperação de senha sem a sua autorização, por favor, entre em contato pelo e-mail: haras@harasluanda.com.br com o Departamento de Comunicação com Usuários.<br /><br />'.
+                            
+                            'Atenciosamente,<br />'. 
+                            'Sistema leilao Haras Luanda <br />'.
+                            'haras@harasluanda.com.br'
+                        );
+                        $this->Flash->success(__('Um e-mail foi enviado para '.$user->username.', com as instruções, acesse!'))
+                    ;
+                }
+            }else{
+                $this->Flash->error(__('Usuário não encontrado!'));
+            }
+        }
     }
 
 }

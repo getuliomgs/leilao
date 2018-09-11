@@ -19,7 +19,9 @@
 		    </fieldset>
 		<?= $this->Form->button(__('Logar')); ?>
 		<?php
-			echo  $this->Html->link('Cadastro', ['action' => 'cadastro']);
+			echo  $this->Html->link('Cadastro', ['action' => 'cadastro']).'<br />';
+			echo  $this->Html->link('Esqueceu senha?', ['action' => 'recuperarSenha']);
+			//localhost:8765/users/recuperarSenha
 		?>
 		<?= $this->Form->end() ?>
 		</div>
