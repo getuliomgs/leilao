@@ -251,46 +251,52 @@
           </div>      
           <div  style="line-height: 1.5;" class="modal-body text-justify">
               <p  class="text-justify ">
-              <h3> Leilão virtual HARAS LUANDA e convidados.</h3>
-              O Leilão será realizado entre os dias ** de ***** de 2018, e encerrado no dia ** de ****** de 2018 às **h (****** horas) (horário de Brasília – DF) sendo os lotes apresentados exclusivamente (ou em visita programada ao HARAS LUANDA) via internet através do site www.harasluanda.com.br/leilao.
+              <h3>Leilão virtual HARAS LUANDA e convidados.</h3>
               <br />
-              Os lances serão recebidos através do site acima mediante cadastro aprovado via analise, conforme lei que regulamenta esta prática.
               <br />
-              O valor do lance final será multiplicado por 36 ( trinta e seis), sendo o resultado desta operação o valor total do lote apregoado.
+              <strong>1 - O Leilão</strong>
+              <br />
+              Os lances serão recebidos através do site: www.harasluanda.com.br/leilao  mediante cadastro aprovado via análise, conforme lei que regulamenta esta prática.
               <br />
               <br />
               <br />
               <strong>2 - CONDIÇÕES DE PAGAMENTO</strong>
               <br  />
-              O total de venda será o valor do lance multiplicado por 36 (trinta e seis) parcelas, por lote.
+              O valor total de cada lote será: O valor do lance final multiplicado por 36 (trinta e seis).
+              <br />
+              O comprador efetuará o pagamento em uma das seguintes modalidades: 
               <br />
               <br />
-              <strong>2.1 –</strong> Descontos – 20% de desconto à vista.
+              <strong>2.1 –</strong> Pagamento à vista com 20% de desconto.
               <br />
               <br />
-              <strong>2.2</strong> – A primeira parcela vence no ato de assinatura do contrato, nota promissória e demais documentos, vencendo as demais a cada 30 (trinta) dias.
+              <strong>2.2 –</strong> Pagamento em 36 (trinta e seis) parcelas fixa mensais no valor do lance.
+              <br />
+              <strong>2.3 -</strong> A primeira parcela vence no ato de assinatura do contrato.
               <br />
               <br />
               <br />
               <strong>3 - COMISSÕES</strong>
               <br />
-              
+              <br />
               Não terá comissão.
               <br />
               <br />
               <br />
               <strong>4 - CADASTROS ANTECIPADOS</strong>
               <br />
+              <br />
               Por tratar-se de evento não presencial, é obrigatória a efetivação dos cadastros dos interessados senhores compradores através do site do leilão www.harasluanda.com.br,  sem os quais não estarão credenciados a acatar lances dos respectivos participantes.
               <br />
               <br />
               <strong>4.1 - LOCAL DE CADASTRAMENTO</strong>
               <br />
-              Os cadastros deverão ser realizados através do site do leilão no endereço www.harasluanda.com.br/leilao.
+              Os cadastros deverão ser realizados através do site do leilão no endereço: www.harasluanda.com.br/leilao
               <br />
               <br />
               <br />
               <strong>5 - APROVAÇÃO DOS CADASTROS</strong>
+              <br />
               <br />
               A critério dos vendedores, os senhores compradores que não apresentarem referências pessoais, bancárias ou documentos exigidos no item 4.1 não estarão aptos a participarem do leilão. Caso haja restrição financeira e comercial em instituições credenciadas para avaliação de crédito, o cadastro poderá ser reprovado pelo nosso sistema.
               <br />
@@ -298,43 +304,48 @@
               <br />
               <strong>6 - AVALISTAS</strong>
               <br />
+              <br />
               Assiste aos vendedores o direito de solicitar avalista de seu conhecimento desde que manifeste esta exigência antes que seja feita a liberação dos animais para entrega aos senhores compradores, ficando a aprovação do nome indicado a exclusivo critério do vendedor.
               <br />
               <br />
               <br />
               <strong>7 - DOCUMENTAÇÕES PARA CONFIRMAÇÃO DAS VENDAS</strong>
               <br />
-              Configurada a venda, conforme Cláusula 4, 5 e 6 deste Regulamento, será encaminhando aos senhores compradores os Contratos de Compra e Venda e respectivas Notas Promissórias, com firma reconhecida, para o endereço constante do cadastro fornecido, documentação que deverá ser assinada e prontamente devolvida ao vendedor ( endereço fornecido por vendedor)
+              <br />
+              Configurada a venda, conforme Cláusula 4,5 e 6 deste Regulamento, será encaminhando aos senhores compradores os Contratos de Compra e Venda e respectivas Notas Promissórias, com firma reconhecida, para o endereço constante do cadastro fornecido, documentação que deverá ser assinada e prontamente devolvida ao vendedor ( endereço fornecido por vendedor)
               <br />
               <br />
               <br />
-              <strong>8 – Toda e qualquer incidência de Impostos será por conta do comprador</strong>
+              <strong>8 –</strong> Toda e qualquer incidência de Impostos será por conta do comprador.
               <br />
               <br />
               <br />
               <strong>9 - LIBERAÇÕES DOS ANIMAIS</strong>
+              <br />
               <br />
               Os animais adquiridos somente serão liberados para retirada física e entrega aos senhores compradores, após a assinatura dos contratos e respectivas Notas Promissórias e recebimento destes documentos originais, com firma reconhecida, conforme cláusula 7 acima, bem como depois de confirmado os créditos, nas respectivas contas corrente indicadas pelo VENDEDOR, dos valores correspondentes a compra e das primeiras parcelas do sinal do negócio efetivado.
               <br />
               <br />
               <br />
               <strong>10 - DA RETIRADA DOS ANIMAIS</strong>
-              Uma vez cumprido o acima descrito na Cláusula 9 deste Regulamento, os senhores compradores poderão retirar os animais adquiridos nos endereços dos Haras dos vendedores, sendo de responsabilidade dos respectivos senhores compradores os custo e risco do transporte dos mesmos desde a origem até seus destinos (lembramos o prazo de 30 trinta dias sem ônus, posteriormente o vendedor se resguarda a cobrar estadia dos mesmos – sugerimos contato para o acerto da retirada o mais breve)
+              <br />
+              <br />
+              Uma vez cumprido o acima descrito na Cláusula 9 deste Regulamento, os senhores compradores poderão retirar os animais adquiridos nos endereços dos Haras dos vendedores, sendo de responsabilidade dos respectivos senhores compradores os custo e risco do transporte dos mesmos desde a origem até seus destinos (lembramos o prazo de 30 trinta dias sem ônus, posteriormente o vendedor se resguarda a cobrar estadia dos mesmos – sugerimos contato para o acerto da retirada o mais breve).
               <br />
               <br />
               <br />
               <strong>11 - Óvulos:</strong> No caso de venda de óvulo da égua doadora, serão de responsabilidade do COMPRADOR os custo e serviços técnicos e profissionais na coleta do embrião e consequente transferência para receptora. A receptora deverá ser fornecida pelo COMPRADOR. O COMPRADOR terá o direito de escolher o garanhão a ser utilizado, devendo enviar o sémem ate a central de transferência do vendedor
               <br />
               <br />
-              <strong> 11.1 - Embrião:</strong> No caso de venda de embrião, os custos dos serviços  técnicos e profissionais na coleta do embrião e a consequente transferência para a receptora, será de responsabilidade do VENDEDOR. A receptora devera ser fornecida pelo VENDEDOR, devendo a mesma ficar a disposição apos a desmama do produto.
+              <strong>11.1 - Embrião:</strong> No caso de venda de embrião, os custos dos serviços  técnicos e profissionais na coleta do embrião e a consequente transferência para a receptora, será de responsabilidade do VENDEDOR. A receptora devera ser fornecida pelo VENDEDOR, devendo a mesma ficar a disposição apos a desmama do produto.
               <br />
               <br />
               <br />
-              <strong>12 - IRREVOGABILIDADE DAS VENDAS</strong> - As vendas realizadas no presente remate são irrevogáveis e irretratáveis, não podendo o comprador recusar o animal ou solicitar redução de seu preço, conforme Legislação do Código Civil Brasileiro.
+              <strong>12 - IRREVOGABILIDADE DAS VENDAS -</strong> As vendas realizadas no presente remate são irrevogáveis e irretratáveis, não podendo o comprador recusar o animal ou solicitar redução de seu preço, conforme Legislação do Código Civil Brasileiro.
               <br />
               <br />
               <br />
-              <strong>13 - RESPONSABILIDADE SOBRE OS ANIMAIS -</strong> Serão de responsabilidade do vendedor a guarda e cuidados com a mantença dos animais leiloados e vendidos, até 30 dias para a retirada, após estes 30 dias, será cobrada um ajuda de manejo de R$ 15,00 por dia no local de origem dos mesmos, cessando esta quando da entrega dos referidos animais de acordo com a Cláusula 10, deste Regulamento, não restando à nós nenhum ônus em caso de acidentes e danos que, eventualmente, venham a ocorrer com os animais.
+              <strong>13 – RESPONSABILIDADE SOBRE OS ANIMAIS -</strong> Serão de responsabilidade do vendedor a guarda e cuidados com a mantença dos animais leiloados e vendidos, até 30 dias para a retirada, após estes 30 dias, será cobrada um ajuda de manejo de R$ 15,00 por dia no local de origem dos mesmos, cessando esta quando da entrega dos referidos animais de acordo com a Cláusula 10, deste Regulamento, não restando à nós nenhum ônus em caso de acidentes e danos que, eventualmente, venham a ocorrer com os animais.
               <br />
               A partir do embarque do animal a responsabilidade do animal passa a ser do comprador.
               <br />
@@ -349,10 +360,14 @@
               <strong>14.2 - SANITÁRIAS –</strong> Os vendedores comprometem-se a entregar os animais livres, acompanhados da documentação comprobatória, de qualquer doença infecto contagiosa nos termos da exigência da Legislação e Fiscalização Sanitárias dos respectivos Estados.
               <br />
               <br />
-              <strong>14.3 - DE REGISTRO –</strong> Responsabilizam-se os vendedores pela garantia do cumprimento das exigências de documentação referente ao Registro Genealógico dos animais vendidos, exeto aqueles animais em quer nao a possibilidade de emissao de documentos, junto ao Serviço de Registro Genealógico da A Associação Brasileira dos Criadores do Cavalo Campolina qual este animal está inserido, no que tange aos aspectos de documentação exigida até quando da data de venda dos mesmos.
+              <strong>14.3 - DE REGISTRO –</strong> Responsabilizam-se os vendedores pela garantia do cumprimento das exigências de documentação referente ao Registro Genealógico dos animais vendidos, exeto aqueles animais em quer não a possibilidade de emissão de documentos.
+              <br />
+              junto ao Serviço de Registro Genealógico da A Associação Brasileira dos Criadores do Cavalo Campolina qual este animal está inserido, no que tange aos aspectos de documentação exigida até quando da data de venda dos mesmos.
               <br />
               <br />
-              <strong>14.4 - DE TRANSFERÊNCIA –</strong> Comprometem-se os vendedores a procederem às respectivas transferências dos animais aos seus novos proprietários, de acordo com os dados fornecidos pelos senhores compradores, ocorrendo isto após a quitação final dos pagamentos correspondentes de cada Nota Promissória emitida pelo vendedor e assinada, pelos senhores compradores, conforme constante do Contrato de Compra e Venda.
+              <strong>14.4 - DE TRANSFERÊNCIA –</strong> Comprometem-se os vendedores a procederem às respectivas transferências dos animais aos seus novos proprietários, de acordo com os dados fornecidos pelos senhores compradores, ocorrendo isto após a quitação final dos pagamentos correspondentes de cada Nota Promissória emitida pelo vendedor e assinada. 
+              <br />
+              pelos senhores compradores, conforme constante do Contrato de Compra e Venda.
               <br />
               <br />
               <strong>14.5 - DAS INFORMAÇÕES FORNECIDAS –</strong> Todas as informações constantes no site são de responsabilidades do vendedor.
@@ -367,7 +382,7 @@
               <br />
               <br />
               <br />
-              <strong>17 - CONDIÇÕES - RESERVA DE DOMÍNIO -</strong> Por força de pacto de reserva de domínio, aqui expressamente instituído e aceito pelas partes, o VENDEDOR mantém-se na propriedade do animal negociado, até o efetivo e completo pagamento das parcelas negociadas acima.
+              <strong>17 – CONDIÇÕES –</strong> RESERVA DE DOMÍNIO - Por força de pacto de reserva de domínio, aqui expressamente instituído e aceito pelas partes, o VENDEDOR mantém-se na propriedade do animal negociado, até o efetivo e completo pagamento das parcelas negociadas acima.
               <br />
               <br />
               <strong>17.1 - O COMPRADOR</strong> não pode transferir ou sub-rogar o contrato, nem negociar, alienar, emprestar a terceiro, dar em penhor ou pagamento o animal antes de quitar integralmente as parcelas, uma vez que o proprietário até a quitação integral é o VENDEDOR.
@@ -382,19 +397,19 @@
               <strong>17.4 -</strong> Em caso de inadimplência de qualquer das parcelas incidirá, também, automaticamente multa de 2% (dois por cento) e correção de 1% (um por cento) ao mês pro rata die.
               <br />
               <br />
-              <strong>17.5 -</strong> Em caso de inadimplência por mais de 30 (trinta) dias de qualquer das parcelas, consecutivas ou não, o VENDEDOR poderá, ao seu critério, exercer a cláusula de reserva de domínio, visando reaver o animal, via medida própria, ou seus créditos aqui pactuados, em caso de morte e/ou debilidade do animal.
+              <strong>17.5 –</strong> Em caso de inadimplência por mais de 30 (trinta) dias de qualquer das parcelas, consecutivas ou não, o VENDEDOR poderá, ao seu critério, exercer a cláusula de reserva de domínio, visando reaver o animal, via medida própria, ou seus créditos aqui pactuados, em caso de morte e/ou debilidade do animal.
               <br />
               <br />
-              <strong>17.6 -</strong> Caso não haja devolução do animal, ou o valor integral não seja quitado, é facultado ao VENDEDOR protestar a nota promissória.
+              <strong>17.6 –</strong> Caso não haja devolução do animal, ou o valor integral não seja quitado, é facultado ao VENDEDOR protestar a nota promissória.
               <br />
               <br />
               <br />
-              <strong>18 - OMISSÃO -</strong>  Todos os casos omissos no presente Regulamento serão resolvidos com base no Código Civil e demais legislação aplicável.
+              <strong>18 – OMISSÃO -</strong>  Todos os casos omissos no presente Regulamento serão resolvidos com base no Código Civil e demais legislação aplicável.
+              <br />
               <br />
               <br />
               <h3>www.harasluanda.com.br</h3>
             </p>
-
           </div>
         </div>
       </div>
