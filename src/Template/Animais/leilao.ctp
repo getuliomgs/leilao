@@ -2,6 +2,7 @@
   echo $this->Html->scriptBlock(' 
   
     jQuery(function($){
+
       $("#date-referencia").mask("99/9999",{placeholder:"dd/yyyy"});
       $("#date-pagamento-previsto").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
 
@@ -122,9 +123,74 @@
           }
         }
       );
+
+      var YY = '.$eventos->data_fim->year.';
+    var MM = '.$eventos->data_fim->month.';
+    var DD = '.$eventos->data_fim->day.';
+    var HH = '.$eventos->data_fim->hour.';
+    var MI = '.$eventos->data_fim->minute.';
+    var SS = '.$eventos->data_fim->second.'; 
+    var alertEncerramento = true;
+
+    function atualizaContador() {
+
+
+    var hoje = new Date();
+    var futuro = new Date(YY,MM-1,DD,HH,MI,SS); 
+
+    var ss = parseInt((futuro - hoje) / 1000);
+    var mm = parseInt(ss / 60);
+    var hh = parseInt(mm / 60);
+    var dd = parseInt(hh / 24); 
+
+    ss = ss - (mm * 60);
+    mm = mm - (hh * 60);
+    hh = hh - (dd * 24); 
+
+    var faltam = "Faltam ";
+    faltam += (dd && dd > 1) ? dd+" dias, " : (dd==1 ? "1 dia, " : "");
+    faltam += (toString(hh).length) ? hh+"h : " : "";
+    faltam += (toString(mm).length) ? mm+"m : " : "";
+    faltam += ss+"s"; 
+    faltam += " para o encerramento."; 
+
+      if (dd+hh+mm+ss > 0) {
+        document.getElementById("contador").innerHTML = faltam;
+        setTimeout(atualizaContador,1000);
+      } else {
+        document.getElementById("contador").innerHTML = "ENCERRADO!!!!";
+        setTimeout(atualizaContador,1000);
+        if(alertEncerramento) {
+          alert("Leilão ENCERRADO!");
+          alertEncerramento = false;
+        }
+      }
+    }
+    atualizaContador();
+
     });
   ' ,  ['defer' => true])
 ?>
+<div class="eventos row">
+    <div class="col-  col-sm- col-md- col-lg- col-xl-4" >
+      <?php echo $this->html->image('../uploads/eventos/'.$eventos->img2, ['width'=>"100%"]); ?> 
+    </div>
+    <div class="col-  col-sm- col-md- col-lg- col-xl-8"  >
+      <?php
+        $meses = array(1=>'janeiro',2=>'fevereiro', 3=>'março',4=>'abril',5=>'maio',6=>'junho',7=>'julho',8=>'agosto',9=>'setembro',10=>'outubro',11=>'novembro',12=>'dezembro' );
+        echo "<h2>".'<strong>'.$eventos->nome.'</strong>';
+        echo "<br /><strong>Início:</strong> ".$eventos->data_ini->day." de ".$meses[$eventos->data_ini->month];
+        echo "<br /><strong>Encerramento: </strong> ".$eventos->data_fim->day." de ".$meses[$eventos->data_fim->month]." | ".$eventos->data_ini->hour."hs</h2>";
+      ?>
+      <h3>
+        <strong>
+          <span id="timerLeilao15" class="contador"></span>
+              <span  style="color: red; " id="contador" class="contador border border-danger"></span>
+            </strong>
+          </h3>
+    </div>        
+    </div>
+    <hr>
 <div class="row" >
   <!-- Indicador de lances cobertos -->
   <div class="row" style=" background: linear-gradient(#ccc, #fff); border-radius: 5px; margin: 10px ">
@@ -741,3 +807,4 @@
       );
     });
 </script>
+ 

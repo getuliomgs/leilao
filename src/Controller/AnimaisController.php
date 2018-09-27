@@ -369,11 +369,18 @@ class AnimaisController extends AppController
           $animai->pelagem = $pelagem[$animai->pelagem];
       }
 
+       $eventos = "";
+        foreach (TableRegistry::get('eventos')->find()->limit(1)->order(['data_ini' => "DESC"]) as $key => $value) {
+            
+            $eventos = $value;
+            
+        }
+
       
       $flagLeilao = $this->animais->flagLeilao($animai->data_leilao_ini, $animai->data_leilao_fim, $time);
       $lances = $this->lances->lances($id);
       $animai->status_2 = $status_2[$animai->status_2];
-      $this->set(compact('animai', 'flagLeilao', 'lances'));
+      $this->set(compact('animai', 'flagLeilao', 'lances', 'eventos'));
       $this->set('_serialize', [$animai, $flagLeilao, $lances]);
   }
 
