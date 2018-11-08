@@ -93,13 +93,16 @@ $cakeDescription = 'Haras Luanda - Leilões';
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <?= $this->html->image('logomarca-haras-luanda.jpg') ?> 
+    <?= $this->html->image('logomarca-haras-luanda.jpg', ['alt' => 'Leilão Haras Luanda', 'url' => 'leilao/']) ?> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <?= $this->html->link('Home', ['controller'=>'leilao/'], ['class'=>'nav-link']) ?>
+      </li>
       <li class="nav-item active">
         <?= $this->html->link('Sobre', ['controller'=>'sobre/'], ['class'=>'nav-link']) ?>
       </li>
