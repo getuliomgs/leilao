@@ -5,7 +5,7 @@
         <li class="heading"><?= __('Actions') ?></li>
     </ul>
 </nav>
-<div class="dados index large-9 medium-8 columns content">
+<div class="dados index large-9 medium-8 columns ">
     <h3><?= __('Dados') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>

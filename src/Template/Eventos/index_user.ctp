@@ -7,7 +7,7 @@
         <li><?= $this->Html->link(__('Novo'), ['action' => 'addUser']) ?></li>
     </ul>
 </nav>
-<div class="eventos index large-9 medium-8 columns content">
+<div class="eventos index large-9 medium-8 columns ">
     <h3><?= __('Leilões') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
