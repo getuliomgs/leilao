@@ -684,7 +684,7 @@
                   </fieldset>
               <?= $this->Form->button(__('Logar')); ?>
               <?php
-                echo  $this->Html->link('Cadastro', ['action' => 'cadastro']);
+                echo  $this->Html->link('Cadastro', ['action' => '../users/cadastro']);
               ?>
               <?= $this->Form->end() ?>
               </div>

@@ -185,6 +185,10 @@ $cakeDescription = 'Haras Luanda - Leilões';
           <h3 style="color: #FFF"> Links</h3>
           <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+        <?= $this->html->link('Home', ['controller'=>'/'], [ 'style'=>"color:#FFFFFF", 'class'=>'nav-link']) ?>
+      </li>
+
+      <li class="nav-item active">
         <?= $this->html->link('Sobre', ['controller'=>'sobre/'], [ 'style'=>"color:#FFFFFF", 'class'=>'nav-link']) ?>
       </li>
       <li class="nav-item">

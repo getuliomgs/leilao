@@ -209,7 +209,7 @@ Plugin::load('Migrations');
 
 if (Configure::read('debug')) {
 
-    Plugin::load('DebugKit', ['bootstrap' => true]);
+    //Plugin::load('DebugKit', ['bootstrap' => true]);
     //Configure::write('DebugKit.panels', ['DebugKit.Packages' => false]);
     //Configure::write('DebugKit.forceEnable', false);
     //Configure::write('DebugKit.forceEnable', false);
