@@ -624,16 +624,18 @@
                   <button id="modalLanceButtonAdd10" type="button" class="btn btn-outline-success"> + R$ 10</button>
                   <button id="modalLanceButtonAdd50" type="button" class="btn btn-outline-success"> + R$ 50</button>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6" style="padding-bottom: 5px">
+                <div class="col-12 col-sm-12 col-md-9" style="padding-bottom: 5px">
                   <span style="font-size: 10">SEU Lance<br /></span>
                   <button id="modalLanceButtonLanceAtual" value="<?= $lanceAtual ?>" type="button" style="height: 100px; font-size: 28" class="btn btn-ln btn-block btn-outline-success"> R$ <?= $lanceAtual ?>,00</button>
                   <input type="text" style="display: none;" name="lanceAtual" value="<?= $lanceAtual ?>">
                 </div>
+                <!--
                 <div class="col-12 col-sm-12 col-md-3" >
                   <span style="font-size: 10">Subtrair<br /></span>
                   <button id="modalLanceButtonSub10" type="button" class="btn btn-outline-secondary"> - R$ 10</button>
                   <button id="modalLanceButtonSub50" type="button" class="btn btn-outline-secondary"> - R$ 50</button>
                 </div>
+              -->
                 <div class="col-12">
                   <hr>
                 </div>
@@ -644,7 +646,7 @@
                   <?= $animai->parcelas ?>x de R$ <span  name="lanceAtual" ><?= $lanceAtual ?></span>,00
                 </div>
                 <div class="col-12">
-                  <button name="efetuarLance" type="button" class="btn btn-success btn-lg btn-block">Efeturar Lance</button>
+                  <button name="efetuarLance" type="button" class="btn btn-success btn-lg btn-block">Efetuar Lance</button>
                 </div>             
               </div>
             </div>
