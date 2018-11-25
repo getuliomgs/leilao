@@ -148,8 +148,8 @@
 
     var diferencaHorario = (testeHojeServidor.getTime() - testeHoje.getTime()) / 3600000;
 
-    alert(diferencaHorario);
-    
+    //alert(diferencaHorario);
+
     function atualizaContador() {
 
 
