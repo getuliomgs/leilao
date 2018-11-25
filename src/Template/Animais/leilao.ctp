@@ -1,4 +1,5 @@
 <?php
+
   echo $this->Html->scriptBlock(' 
   
     jQuery(function($){
@@ -124,21 +125,45 @@
         }
       );
 
-      var YY = '.$eventos->data_fim->year.';
+    var YY = '.$eventos->data_fim->year.';
     var MM = '.$eventos->data_fim->month.';
     var DD = '.$eventos->data_fim->day.';
     var HH = '.$eventos->data_fim->hour.';
     var MI = '.$eventos->data_fim->minute.';
     var SS = '.$eventos->data_fim->second.'; 
+
+    var HojeServidorYY = '.$time->year.';
+    var HojeServidorMM = '.$time->month.' - 1;
+    var HojeServidorDD = '.$time->day.';
+    var HojeServidorHH = '.$time->hour.';
+    var HojeServidorMI = '.$time->minute.';
+    var HojeServidorSS = '.$time->second.'; 
+
     var alertEncerramento = true;
+
+    var testeHoje = new Date();
+    var testeHojeServidor = new Date(HojeServidorYY,HojeServidorMM,HojeServidorDD,HojeServidorHH,HojeServidorMI,HojeServidorSS);
+    //alert(testeHoje.getTimezoneOffset().);
+    //alert("Servidor: '.$time.$time->second.'microtime "+testeHojeServidor.getTime()+" navegador: "+testeHoje+"microtime "+testeHoje.getTime());
+
+    var diferencaHorario = (testeHojeServidor.getTime() - testeHoje.getTime()) / 3600000;
+
+    //alert(diferencaHorario);
 
     function atualizaContador() {
 
 
     var hoje = new Date();
+
+
+    hoje.setHours(hoje.getHours() + diferencaHorario);
+
+   
     var futuro = new Date(YY,MM-1,DD,HH,MI,SS); 
 
-    var ss = parseInt((futuro - hoje) / 1000);
+    var HojeServidor = new Date(HojeServidorYY,HojeServidorMM,HojeServidorDD,HojeServidorHH,HojeServidorMI,HojeServidorSS); 
+
+    var ss = parseInt((futuro - hoje)  / 1000);
     var mm = parseInt(ss / 60);
     var hh = parseInt(mm / 60);
     var dd = parseInt(hh / 24); 
@@ -152,7 +177,7 @@
     faltam += (toString(hh).length) ? hh+"h : " : "";
     faltam += (toString(mm).length) ? mm+"m : " : "";
     faltam += ss+"s"; 
-    faltam += " para o encerramento."; 
+    faltam += " para o encerramento. "; 
 
       if (dd+hh+mm+ss > 0) {
         document.getElementById("contador").innerHTML = faltam;

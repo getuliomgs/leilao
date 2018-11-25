@@ -376,12 +376,19 @@ class AnimaisController extends AppController
             
         }
 
+      //debug($time->subSecond(3600));
       
+      //debug($time);
+      //debug(get_class_methods($time));
+     
+      
+      
+     
       $flagLeilao = $this->animais->flagLeilao($animai->data_leilao_ini, $animai->data_leilao_fim, $time);
       $lances = $this->lances->lances($id);
       $animai->status_2 = $status_2[$animai->status_2];
-      $this->set(compact('animai', 'flagLeilao', 'lances', 'eventos'));
-      $this->set('_serialize', [$animai, $flagLeilao, $lances]);
+      $this->set(compact('animai', 'flagLeilao', 'lances', 'eventos', 'time'));
+      $this->set('_serialize', [$animai, $flagLeilao, $lances, $time]);
   }
 
   /**
