@@ -146,9 +146,9 @@
     //alert(testeHoje.getTimezoneOffset().);
     //alert("Servidor: '.$time.$time->second.'microtime "+testeHojeServidor.getTime()+" navegador: "+testeHoje+"microtime "+testeHoje.getTime());
 
-    var diferencaHorario = (testeHojeServidor.getTime() - testeHoje.getTime()) / 3600000;
+    var diferencaHorario = parseInt((testeHojeServidor.getTime() - testeHoje.getTime()) / 3600000);
 
-    alert(diferencaHorario);
+    //alert(diferencaHorario);
 
     function atualizaContador() {
 

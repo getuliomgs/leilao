@@ -56,8 +56,8 @@ class LeiloesController extends AppController
             
         }
         
-        $this->set(compact('listarAnimais','flagLeilao', 'lances', 'eventos'));
-        $this->set('_serialize', [$listarAnimais, $flagLeilao, $lances]);
+        $this->set(compact('listarAnimais','flagLeilao', 'lances', 'eventos', 'time'));
+        $this->set('_serialize', [$listarAnimais, $flagLeilao, $lances, $time]);
     }
 
     
