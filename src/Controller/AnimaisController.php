@@ -17,7 +17,7 @@ class AnimaisController extends AppController
 
   public $uploads =  '../uploads/animais/'; 
   public $uploads2 =  'uploads/animais/'; 
-  private $sexo = ['m' => 'Macho','f' => 'Fêmia'];
+  private $sexo = ['m' => 'Macho','f' => 'Femea'];
   private $status_2 =  [ 'A'=>'Ativo', 'I'=>'Inativo'];
   private $pelagem =
       [
