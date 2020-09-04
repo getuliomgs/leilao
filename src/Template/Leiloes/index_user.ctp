@@ -92,7 +92,7 @@
 				$meses = array(1=>'janeiro',2=>'fevereiro', 3=>'março',4=>'abril',5=>'maio',6=>'junho',7=>'julho',8=>'agosto',9=>'setembro',10=>'outubro',11=>'novembro',12=>'dezembro' );
 				echo "<h2>".'<strong>'.$eventos->nome.'</strong>';
 				echo "<br /><strong>Início:</strong> ".$eventos->data_ini->day." de ".$meses[$eventos->data_ini->month];
-				echo "<br /><strong>Encerramento: </strong> ".$eventos->data_fim->day." de ".$meses[$eventos->data_fim->month]." | ".$eventos->data_fim->hour."hs ".$eventos->data_fim->minut."min</h2>";
+				echo "<br /><strong>Encerramento: </strong> ".$eventos->data_fim->day." de ".$meses[$eventos->data_fim->month]." | ".$eventos->data_fim->hour."hs ".$eventos->data_fim->minute."min</h2>";
 			?>
 			<h3>
 				<strong>
