@@ -115,7 +115,7 @@
 							<?php echo nl2br($value->descricao); ?>
 						</p>
 						<p class="card-text">
-							LOTE: <strong><?php echo $value->id ?></strong>
+							ID: <strong><?php echo $value->id ?></strong>
 						</p>
 						<div class="card-lance-atual">						
 							Lance atual
