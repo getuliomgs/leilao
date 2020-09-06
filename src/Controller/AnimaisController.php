@@ -422,7 +422,7 @@ class AnimaisController extends AppController
       if ($lances->save($lance)) {
         echo  "
               <div class='col-12'><h2>Parabéns</h2></div>
-              <div class='col-12'><h4>Você é o atual arrematante desse Lote!</h4></div>
+              <div class='col-12'><h4>Você é o atual arrematante desse ID!</h4></div>
               <div class='col-12'><a href='javascript:history.back() ' ><button id=\"buttonAtualizar\" type=\"button\" class=\"btn btn-success btn-primary btn-lg btn-block\">ATUALIZAR</button></a></div>
             ";
         $this->lances->comunicarLance($lance);

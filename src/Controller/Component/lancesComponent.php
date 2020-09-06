@@ -73,7 +73,7 @@ class lancesComponent extends Component {
 
                     'Parabéns, <br /><br />'.
 
-                    'Seu lance no lote '.$lance->animais_id.' foi computado com sucesso.<br /><br />'.
+                    'Seu lance no ID '.$lance->animais_id.' foi computado com sucesso.<br /><br />'.
 
                     'Caso seu lance seja o vencedor nosso comercial@harasluanda.com.br entrara em contato.<br /><br />'.
                     
@@ -97,7 +97,7 @@ class lancesComponent extends Component {
                     
                     'Prezado(a), '.$value->user->username.' <br /><br />'.
 
-                    'Seu lance no lote '.$lance->animais_id.' foi superado.<br /><br />'.
+                    'Seu lance no ID '.$lance->animais_id.' foi superado.<br /><br />'.
 
                     'Não perca essa oportunidade.<br /><br />'.
 
